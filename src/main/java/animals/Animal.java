@@ -3,14 +3,14 @@ package animals;
 public class Animal {
 
     private String voice = null;
-    private String run = "Run";
+    private final String Run = "Run";
 
     public String getVoice() {
         return voice;
     }
 
     public String getRun() {
-        return run;
+        return Run;
     }
 
     public void setVoice(String voice) {

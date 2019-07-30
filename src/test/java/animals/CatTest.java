@@ -4,17 +4,17 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class CatTest {
-    Cat ShredingerCat = new Cat();
+    Cat shredingerCat = new Cat();
 
     @Test
     public void testCatVoice()
     {
-        Assert.assertEquals(ShredingerCat.getVoice(), "Мяв!");
+        Assert.assertEquals(shredingerCat.getVoice(), "Мяв!");
     }
 
     @Test
     public void testCatRun()
     {
-        Assert.assertEquals(ShredingerCat.getRun(), "Run");
+        Assert.assertEquals(shredingerCat.getRun(), "Run");
     }
 }
