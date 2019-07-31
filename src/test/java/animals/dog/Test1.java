@@ -10,6 +10,6 @@ public class Test1 {
     public void testDogVoice()
     {
         Dog dog = new Dog();
-        Assert.assertEquals(dog.getVoice(), "Гав!");
+        Assert.assertEquals(dog.getVoice(), "ГАВ!");
     }
 }

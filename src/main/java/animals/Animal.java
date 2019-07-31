@@ -9,10 +9,6 @@ public class Animal {
         return voice;
     }
 
-    public String getRun() {
-        return RUN;
-    }
-
     public void setVoice(String voice) {
         this.voice = voice;
     }
@@ -24,7 +20,7 @@ public class Animal {
 
     public void run()
     {
-        System.out.println(getRun());
+        System.out.println(RUN);
     }
 
 }
