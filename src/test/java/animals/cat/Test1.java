@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 public class Test1 {
 
     @Test
-    private void testCatVoice()
+    public void testCatVoice()
     {
         Cat shredingerCat = new Cat();
         Assert.assertEquals(shredingerCat.getVoice(), "Мяв!");

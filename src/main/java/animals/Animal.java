@@ -3,7 +3,7 @@ package animals;
 public class Animal {
 
     private String voice = null;
-    private final String Run = "Run";
+    final static String Run = "Run";
 
     public String getVoice() {
         return voice;
