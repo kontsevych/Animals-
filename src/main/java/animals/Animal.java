@@ -18,6 +18,16 @@ public class Animal {
         System.out.println(getVoice());
     }
 
+    public String[] voice(int repeat) {
+        String voice[] = new String[repeat];
+
+        for (int i = 0; i < repeat; i++ )
+        {
+            voice[i] = getVoice();
+            System.out.println(getVoice());
+        }
+        return voice;
+    }
     public void run()
     {
         System.out.println(RUN);
