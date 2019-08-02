@@ -17,7 +17,7 @@ public class Test1 {
     public void testDogVoiceRepeat()
     {
         Dog dog = new Dog();
-        String test[] = dog.voice(1);
+        String[] test = dog.voice(1);
         Assert.assertEquals(test.length, 1 );
         for(String i: dog.voice(10))
         {

@@ -10,6 +10,6 @@ public class Test2 {
     public void testDogRun()
     {
         Dog dog = new Dog();
-        Assert.assertEquals(dog.RUN, "Run");
+        Assert.assertEquals(Dog.RUN, "Run");
     }
 }

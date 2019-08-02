@@ -10,6 +10,6 @@ public class Test2 {
     public void testCatRun()
     {
         Cat shredingerCat = new Cat();
-        Assert.assertEquals(shredingerCat.RUN, "Run");
+        Assert.assertEquals(Cat.RUN, "Run");
     }
 }
