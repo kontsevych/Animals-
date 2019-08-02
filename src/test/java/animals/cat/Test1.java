@@ -13,4 +13,15 @@ public class Test1 {
         Assert.assertEquals(shredingerCat.getVoice(), "Я сказав МЯВ!");
     }
 
+    @Test
+    public void testCatVoiceRepeat()
+    {
+        Cat shredingerCat = new Cat();
+        String test[] = shredingerCat.voice(1);
+        Assert.assertEquals(test.length, 1);
+        for(String i: shredingerCat.voice(3))
+        {
+            Assert.assertEquals(i, Cat.MEOW);
+        }
+    }
 }
