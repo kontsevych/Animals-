@@ -6,5 +6,10 @@ package animals;
     {
         setVoice(MEOW);
     }
+     public Cat(double weight)
+     {
+         setWeight(weight);
+         setVoice(MEOW);
+     }
 
 }

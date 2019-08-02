@@ -8,5 +8,11 @@ public class Dog extends Animal{
         setVoice(BARK);
     }
 
+    public Dog(double weight)
+    {
+        setWeight(weight);
+        setVoice(BARK);
+    }
+
 
 }
