@@ -15,7 +15,7 @@ public class Test2 extends AbstractAnimalTest {
         double time = getTimeOfDistance(weight, Animal.DEFAULT_DISTANCE_RUN);
 
         Cat shredingerCat = new Cat(weight);
-        Assert.assertEquals(shredingerCat.run(Animal.DEFAULT_DISTANCE_RUN), time);
+        Assert.assertEquals(shredingerCat.run(), time);
     }
 
     @Test
