@@ -10,7 +10,7 @@ public class Test1 {
     public void testCatVoice()
     {
         Cat shredingerCat = new Cat();
-        Assert.assertEquals(shredingerCat.getVoice(), "Я сказав МЯВ!");
+        Assert.assertEquals(shredingerCat.getVoice(), Cat.MEOW);
     }
 
     @Test

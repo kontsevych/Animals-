@@ -1,6 +1,8 @@
 package animals;
 
-public class Dog extends Animal{
+public class Dog extends Animal
+{
+
     public final static String BARK = "ГАВ!";
 
     public Dog()
@@ -13,6 +15,5 @@ public class Dog extends Animal{
         setWeight(weight);
         setVoice(BARK);
     }
-
 
 }

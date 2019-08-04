@@ -10,15 +10,19 @@ public class Test1 {
     public void testDogVoice()
     {
         Dog dog = new Dog();
-        Assert.assertEquals(dog.getVoice(), "ГАВ!");
+
+        Assert.assertEquals(dog.getVoice(), Dog.BARK);
     }
 
     @Test
     public void testDogVoiceRepeat()
     {
         Dog dog = new Dog();
+
         String[] test = dog.voice(1);
+
         Assert.assertEquals(test.length, 1 );
+
         for(String i: dog.voice(10))
         {
             Assert.assertEquals(i, Dog.BARK);

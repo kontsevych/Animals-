@@ -10,7 +10,8 @@ public class Test2 {
     public void testDogRun()
     {
         Dog dog = new Dog();
-        Assert.assertEquals(Dog.RUN, "Run");
+
+        Assert.assertEquals(dog.getVoice(), Dog.RUN);
     }
 
     @Test
@@ -19,7 +20,9 @@ public class Test2 {
         int distance = 1;
         double weight = 1;
         double time = distance / (weight/2);
+
         Dog dog = new Dog(weight);
+
         Assert.assertEquals(dog.run(distance), time);
     }
 }
