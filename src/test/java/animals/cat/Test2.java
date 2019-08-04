@@ -1,17 +1,18 @@
 package animals.cat;
 
+import animals.AbstractAnimalTest;
 import animals.Animal;
 import animals.Cat;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class Test2 {
+public class Test2 extends AbstractAnimalTest {
 
     @Test
-    public void testCatRun()
+    public void testCatRunDefault()
     {
         double weight = 1;
-        double time = Animal.DEFAULT_DISTANCE_RUN / (weight/2);
+        double time = getTimeOfDistance(weight, Animal.DEFAULT_DISTANCE_RUN);
 
         Cat shredingerCat = new Cat(weight);
         Assert.assertEquals(shredingerCat.run(Animal.DEFAULT_DISTANCE_RUN), time);
@@ -22,7 +23,7 @@ public class Test2 {
     {
         int distance = 1;
         double weight = 1;
-        double time = distance / (weight/2);
+        double time = getTimeOfDistance(weight, distance);
 
         Cat shredingerCat = new Cat(weight);
         Assert.assertEquals(shredingerCat.run(distance), time);

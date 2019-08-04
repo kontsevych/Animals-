@@ -1,17 +1,18 @@
 package animals.dog;
 
+import animals.AbstractAnimalTest;
 import animals.Animal;
 import animals.Dog;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class Test2 {
+public class Test2 extends AbstractAnimalTest {
 
     @Test
-    public void testDogRun()
+    public void testDogRunDefault()
     {
         double weight = 1;
-        double time = Animal.DEFAULT_DISTANCE_RUN / (weight/2);
+        double time = getTimeOfDistance(weight, Animal.DEFAULT_DISTANCE_RUN);
 
         Dog dog = new Dog(weight);
 
@@ -21,12 +22,13 @@ public class Test2 {
     @Test
     public void testDogRunDistance()
     {
-        int distance = 1;
+        int count = 10;
         double weight = 1;
-        double time = distance / (weight/2);
+        double time = getTimeOfDistance(weight, count);
 
         Dog dog = new Dog(weight);
 
-        Assert.assertEquals(dog.run(distance), time);
+        Assert.assertEquals(dog.run(count), time);
     }
+
 }
