@@ -1,5 +1,6 @@
 package animals.dog;
 
+import animals.Animal;
 import animals.Dog;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -9,9 +10,12 @@ public class Test2 {
     @Test
     public void testDogRun()
     {
-        Dog dog = new Dog();
+        double weight = 1;
+        double time = Animal.DEFAULT_DISTANCE_RUN / (weight/2);
 
-        Assert.assertEquals(dog.getVoice(), Dog.RUN);
+        Dog dog = new Dog(weight);
+
+        Assert.assertEquals(dog.run(), time);
     }
 
     @Test

@@ -3,6 +3,7 @@ package animals;
 public class Animal
 {
     public final static int DEFAULT_COUNT_VOICE = 1;
+    public final static double DEFAULT_DISTANCE_RUN = 1;
     public final static String RUN = "Run";
 
     private String voice = null;
@@ -45,6 +46,11 @@ public class Animal
             System.out.println(getVoice());
         }
         return voice;
+    }
+
+    public double run()
+    {
+        return run(DEFAULT_DISTANCE_RUN);
     }
 
     public double run(double distance)

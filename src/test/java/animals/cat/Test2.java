@@ -1,5 +1,6 @@
 package animals.cat;
 
+import animals.Animal;
 import animals.Cat;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -9,8 +10,11 @@ public class Test2 {
     @Test
     public void testCatRun()
     {
-        Cat shredingerCat = new Cat();
-        Assert.assertEquals(shredingerCat.getVoice(), Cat.MEOW);
+        double weight = 1;
+        double time = Animal.DEFAULT_DISTANCE_RUN / (weight/2);
+
+        Cat shredingerCat = new Cat(weight);
+        Assert.assertEquals(shredingerCat.run(Animal.DEFAULT_DISTANCE_RUN), time);
     }
 
     @Test
