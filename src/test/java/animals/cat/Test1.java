@@ -1,5 +1,6 @@
 package animals.cat;
 
+import animals.Animal;
 import animals.Cat;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -10,18 +11,29 @@ public class Test1 {
     public void testCatVoice()
     {
         Cat shredingerCat = new Cat();
-        Assert.assertEquals(shredingerCat.getVoice(), Cat.MEOW);
+
+        String[] result = shredingerCat.voice();
+        Assert.assertEquals(result.length, Animal.DEFAULT_COUNT_VOICE);
+
+        for(String i: result)
+        {
+            Assert.assertEquals(i, Cat.MEOW);
+        }
     }
 
     @Test
     public void testCatVoiceRepeat()
     {
+        int count = 10;
         Cat shredingerCat = new Cat();
-        String[] test = shredingerCat.voice(1);
-        Assert.assertEquals(test.length, 1);
-        for(String i: shredingerCat.voice(3))
+
+        String[] result = shredingerCat.voice(count);
+        Assert.assertEquals(result.length, count);
+
+        for(String i: result)
         {
             Assert.assertEquals(i, Cat.MEOW);
         }
     }
+
 }

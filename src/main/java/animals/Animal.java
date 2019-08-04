@@ -3,9 +3,11 @@ package animals;
 public class Animal
 {
 
-    private String voice = null;
+    public final static int DEFAULT_COUNT_VOICE = 1;
     public final static String RUN = "Run";
+    private String voice = null;
     private double weight = 0;
+
 
     public double getWeight() {
         return weight;
@@ -26,15 +28,15 @@ public class Animal
         this.voice = voice;
     }
 
-    public void voice()
+    public String[] voice()
     {
-        System.out.println(getVoice());
+        return voice(DEFAULT_COUNT_VOICE);
     }
 
     public String[] voice(int repeat)
     {
 
-        String voice[] = new String[repeat];
+        String[] voice = new String[repeat];
 
         for (int i = 0; i < repeat; i++ )
         {
@@ -54,7 +56,7 @@ public class Animal
 
             System.out.println("The " + distance + " meters distance can be run in " + time + " seconds");
 
-        } else System.out.println("I'm too lazy to run. Get off!");;
+        } else System.out.println("I'm too lazy to run. Get off!");
 
         return time;
     }

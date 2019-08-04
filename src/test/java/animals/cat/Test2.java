@@ -10,7 +10,6 @@ public class Test2 {
     public void testCatRun()
     {
         Cat shredingerCat = new Cat();
-
         Assert.assertEquals(shredingerCat.getVoice(), Cat.MEOW);
     }
 
@@ -22,7 +21,6 @@ public class Test2 {
         double time = distance / (weight/2);
 
         Cat shredingerCat = new Cat(weight);
-
         Assert.assertEquals(shredingerCat.run(distance), time);
     }
 }
