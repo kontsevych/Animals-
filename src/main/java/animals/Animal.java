@@ -2,9 +2,9 @@ package animals;
 
 public class Animal
 {
-
     public final static int DEFAULT_COUNT_VOICE = 1;
     public final static String RUN = "Run";
+
     private String voice = null;
     private double weight = 0;
 
