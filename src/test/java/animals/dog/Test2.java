@@ -46,8 +46,8 @@ public class Test2 extends AbstractAnimalTest {
 
             Dog dog = new Dog(weight);
 
-            Assert.assertEquals(dog.run(count), time);
-
+            dog.run(count);
+            Assert.fail("The distance > 0: Distance = " + count);
         } catch (IllegalArgumentException e) {
             Assert.assertEquals(e.getMessage(), getDistanceException(weight, count));
         }
