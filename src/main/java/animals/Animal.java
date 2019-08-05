@@ -44,7 +44,7 @@ public class Animal
         return voice;
     }
 
-    public double run()
+    public double run() // Run method with default statement.
     {
         return run(DEFAULT_DISTANCE_RUN);
     }
@@ -55,14 +55,13 @@ public class Animal
         if (distance <= 0)
         {
             throw new IllegalArgumentException("Value of a distance is negative or 0: distanve = " + distance);
-        } else if (weight <= 0)
+        } if (weight <= 0)
         {
             throw new IllegalArgumentException("Value of a weight is negative or 0: weight = " + weight);
-        } else
-            {
+        } else {
                 time = distance / (weight / 2);
                 System.out.println("The " + distance + " meters distance can be run in " + time + " seconds");
-            };
+            }
         return time;
     }
 }
