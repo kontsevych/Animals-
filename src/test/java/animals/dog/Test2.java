@@ -28,10 +28,10 @@ public class Test2 extends AbstractAnimalTest {
 
             Dog dog = new Dog(weight);
 
-            Assert.assertEquals(dog.run(count), time);
+            dog.run(count);
 
+            Assert.fail("The weight > 0: weight = " + weight);
         } catch (IllegalArgumentException e) {
-            System.out.println(e);
             Assert.assertEquals(e.getMessage(), getWeightException(weight));
         }
     }
