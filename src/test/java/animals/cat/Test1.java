@@ -8,30 +8,26 @@ import org.testng.annotations.Test;
 public class Test1 {
 
     @Test
-    public void testCatVoice()
-    {
+    public void testCatVoice() {
         Cat shredingerCat = new Cat();
 
         String[] result = shredingerCat.voice();
         Assert.assertEquals(result.length, Animal.DEFAULT_COUNT_VOICE);
 
-        for(String i: result)
-        {
+        for (String i : result) {
             Assert.assertEquals(i, Cat.MEOW);
         }
     }
 
     @Test
-    public void testCatVoiceRepeat()
-    {
+    public void testCatVoiceRepeat() {
         int count = 10;
         Cat shredingerCat = new Cat();
 
         String[] result = shredingerCat.voice(count);
         Assert.assertEquals(result.length, count);
 
-        for(String i: result)
-        {
+        for (String i : result) {
             Assert.assertEquals(i, Cat.MEOW);
         }
     }

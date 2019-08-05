@@ -19,41 +19,6 @@ public class Test2 extends AbstractAnimalTest {
     }
 
     @Test
-    public void testDogRunDistanceExceptionWeight() {
-        int count = 10;
-        double weight = 0;
-
-        try {
-            double time = getTimeOfDistance(weight, count);
-
-            Dog dog = new Dog(weight);
-
-            dog.run(count);
-
-            Assert.fail("The weight > 0: weight = " + weight);
-        } catch (IllegalArgumentException e) {
-            Assert.assertEquals(e.getMessage(), getWeightException(weight));
-        }
-    }
-
-    @Test
-    public void testDogRunDistanceExceptionDistance() {
-        int count = 0;
-        double weight = 10;
-
-        try {
-            double time = getTimeOfDistance(weight, count);
-
-            Dog dog = new Dog(weight);
-
-            dog.run(count);
-            Assert.fail("The distance > 0: Distance = " + count);
-        } catch (IllegalArgumentException e) {
-            Assert.assertEquals(e.getMessage(), getDistanceException(weight, count));
-        }
-    }
-
-    @Test
     public void testDogRunDistance() {
         int count = 10;
         double weight = 10;
@@ -64,4 +29,52 @@ public class Test2 extends AbstractAnimalTest {
         Assert.assertEquals(dog.run(count), time);
     }
 
+    @Test
+    public void testDogRunDistanceExceptionDistance() {
+        int count = 0;
+        double weight = 10;
+        String codeException = " ";
+        String standardException = " ";
+
+        Dog dog = new Dog(weight);
+        try {
+            dog.run(count);
+            Assert.fail("The distance > 0: Distance = " + count);
+        } catch (IllegalArgumentException e) {
+
+            codeException = e.getMessage();
+        }
+        try {
+            getTimeOfDistance(weight, count);
+        } catch (IllegalArgumentException e) {
+
+            standardException = e.getMessage();
+        }
+
+        Assert.assertEquals(codeException, standardException);
+    }
+
+    @Test
+    public void testDogRunDistanceExceptionWeight() {
+        int count = 10;
+        double weight = 0;
+        String codeException = " ";
+        String standardException = " ";
+
+        Dog dog = new Dog(weight);
+        try {
+            dog.run(count);
+            Assert.fail("The weight > 0: weight = " + weight);
+        } catch (IllegalArgumentException e) {
+            codeException = e.getMessage();
+        }
+        try {
+            getTimeOfDistance(weight, count);
+        } catch (IllegalArgumentException e) {
+
+            standardException = e.getMessage();
+        }
+
+        Assert.assertEquals(codeException, standardException);
+    }
 }

@@ -1,18 +1,15 @@
 package animals;
 
-public class Cat extends Animal
-{
+public class Cat extends Animal {
     public final static String MEOW = "Я сказав МЯВ!";
 
-    public Cat()
-    {
+    public Cat() {
         setVoice(MEOW);
     }
 
-    public Cat(double weight)
-    {
-         setWeight(weight);
-         setVoice(MEOW);
+    public Cat(double weight) {
+        setWeight(weight);
+        setVoice(MEOW);
     }
 
 }

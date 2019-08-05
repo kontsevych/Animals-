@@ -13,17 +13,4 @@ public abstract class AbstractAnimalTest {
             return distance / (weight / 2);
         }
     }
-
-    protected String getWeightException(double weight) {
-        return getDistanceException(weight, Animal.DEFAULT_DISTANCE_RUN);
-    }
-
-    protected String getDistanceException(double weight, double distance) {
-        try {
-            getTimeOfDistance(weight, distance);
-        } catch (IllegalArgumentException e) {
-            return e.getMessage();
-        }
-        return null;
-    }
 }
