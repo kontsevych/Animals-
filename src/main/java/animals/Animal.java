@@ -52,13 +52,17 @@ public class Animal
     {
         double time = 0;
 
-        if (distance != 0) {
-            time = distance / (weight / 2);
-
-            System.out.println("The " + distance + " meters distance can be run in " + time + " seconds");
-
-        } else System.out.println("I'm too lazy to run. Get off!");
-
+        if (distance <= 0)
+        {
+            throw new IllegalArgumentException("Value of a distance is negative or 0: distanve = " + distance);
+        } else if (weight <= 0)
+        {
+            throw new IllegalArgumentException("Value of a weight is negative or 0: weight = " + weight);
+        } else
+            {
+                time = distance / (weight / 2);
+                System.out.println("The " + distance + " meters distance can be run in " + time + " seconds");
+            };
         return time;
     }
 }
