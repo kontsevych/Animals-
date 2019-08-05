@@ -1,7 +1,6 @@
 package animals;
 
-public class Animal
-{
+public class Animal {
     public final static int DEFAULT_COUNT_VOICE = 1;
     public final static double DEFAULT_DISTANCE_RUN = 1;
     public final static String RUN = "Run";
@@ -12,31 +11,28 @@ public class Animal
     public double getWeight() {
         return weight;
     }
-    public String getVoice()
-    {
+
+    public String getVoice() {
         return voice;
     }
 
-    public void setWeight(double weight)
-    {
+    public void setWeight(double weight) {
         this.weight = weight;
     }
-    public void setVoice(String voice)
-    {
+
+    public void setVoice(String voice) {
         this.voice = voice;
     }
 
-    public String[] voice()
-    {
+    public String[] voice() {
         return voice(DEFAULT_COUNT_VOICE);
     }
-    public String[] voice(int repeat)
-    {
+
+    public String[] voice(int repeat) {
 
         String[] voice = new String[repeat];
 
-        for (int i = 0; i < repeat; i++ )
-        {
+        for (int i = 0; i < repeat; i++) {
             voice[i] = getVoice();
 
             System.out.println(getVoice());
@@ -48,20 +44,19 @@ public class Animal
     {
         return run(DEFAULT_DISTANCE_RUN);
     }
-    public double run(double distance)
-    {
+
+    public double run(double distance) {
         double time = 0;
 
-        if (distance <= 0)
-        {
+        if (distance <= 0) {
             throw new IllegalArgumentException("Value of a distance is negative or 0: distanve = " + distance);
-        } if (weight <= 0)
-        {
+        }
+        if (weight <= 0) {
             throw new IllegalArgumentException("Value of a weight is negative or 0: weight = " + weight);
         } else {
-                time = distance / (weight / 2);
-                System.out.println("The " + distance + " meters distance can be run in " + time + " seconds");
-            }
+            time = distance / (weight / 2);
+            System.out.println("The " + distance + " meters distance can be run in " + time + " seconds");
+        }
         return time;
     }
 }

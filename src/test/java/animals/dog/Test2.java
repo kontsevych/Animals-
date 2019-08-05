@@ -9,8 +9,7 @@ import org.testng.annotations.Test;
 public class Test2 extends AbstractAnimalTest {
 
     @Test
-    public void testDogRunDefault()
-    {
+    public void testDogRunDefault() {
         double weight = 1;
         double time = getTimeOfDistance(weight, Animal.DEFAULT_DISTANCE_RUN);
 
@@ -50,7 +49,6 @@ public class Test2 extends AbstractAnimalTest {
             Assert.assertEquals(dog.run(count), time);
 
         } catch (IllegalArgumentException e) {
-            System.out.println(e);
             Assert.assertEquals(e.getMessage(), getDistanceException(weight, count));
         }
     }
