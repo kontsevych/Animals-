@@ -28,7 +28,7 @@ public class Test2 extends AbstractAnimalTest {
     }
 
     @Test
-    public void testDogRunDistanceExceptionDistance() {
+    public void testCatRunDistanceExceptionDistance() {
         int count = 0;
         double weight = 10;
         String codeException = " ";
@@ -51,9 +51,9 @@ public class Test2 extends AbstractAnimalTest {
     }
 
     @Test
-    public void testDogRunDistanceExceptionWeight() {
+    public void testCatRunDistanceExceptionWeight() {
         int count = 100;
-        double weight = 10;
+        double weight = 0;
         String codeException = " ";
         String standardException = " ";
 
