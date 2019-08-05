@@ -10,9 +10,9 @@ public class Cat extends Animal
     }
 
     public Cat(double weight)
-     {
+    {
          setWeight(weight);
          setVoice(MEOW);
-     }
+    }
 
 }

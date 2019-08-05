@@ -9,21 +9,18 @@ public class Animal
     private String voice = null;
     private double weight = 0;
 
-
     public double getWeight() {
         return weight;
+    }
+    public String getVoice()
+    {
+        return voice;
     }
 
     public void setWeight(double weight)
     {
         this.weight = weight;
     }
-
-    public String getVoice()
-    {
-        return voice;
-    }
-
     public void setVoice(String voice)
     {
         this.voice = voice;
@@ -33,7 +30,6 @@ public class Animal
     {
         return voice(DEFAULT_COUNT_VOICE);
     }
-
     public String[] voice(int repeat)
     {
 
@@ -52,7 +48,6 @@ public class Animal
     {
         return run(DEFAULT_DISTANCE_RUN);
     }
-
     public double run(double distance)
     {
         double time = 0;

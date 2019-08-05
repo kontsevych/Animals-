@@ -23,7 +23,7 @@ public class Test2 extends AbstractAnimalTest {
     public void testDogRunDistance()
     {
         int count = 10;
-        double weight = 1;
+        double weight = -1;
         double time = getTimeOfDistance(weight, count);
 
         Dog dog = new Dog(weight);
