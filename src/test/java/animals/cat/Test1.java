@@ -9,7 +9,7 @@ public class Test1 {
 
     @Test
     public void testCatVoice() {
-        Cat shredingerCat = new Cat();
+        Cat shredingerCat = new Cat(10);
 
         String[] result = shredingerCat.voice();
         Assert.assertEquals(result.length, Animal.DEFAULT_COUNT_VOICE);
@@ -22,7 +22,7 @@ public class Test1 {
     @Test
     public void testCatVoiceRepeat() {
         int count = 10;
-        Cat shredingerCat = new Cat();
+        Cat shredingerCat = new Cat(10);
 
         String[] result = shredingerCat.voice(count);
         Assert.assertEquals(result.length, count);
