@@ -13,7 +13,7 @@ public class Test2 extends AbstractAnimalTest {
         double weight = 1;
         double time = getTimeOfDistance(weight, Animal.DEFAULT_DISTANCE_RUN);
 
-        Cat shredingerCat = new Cat(weight);
+        Cat shredingerCat = new Cat(weight, "Test");
         Assert.assertEquals(shredingerCat.run(), time);
     }
 
@@ -23,7 +23,7 @@ public class Test2 extends AbstractAnimalTest {
         double weight = 1;
         double time = getTimeOfDistance(weight, distance);
 
-        Cat shredingerCat = new Cat(weight);
+        Cat shredingerCat = new Cat(weight, "Test");
         Assert.assertEquals(shredingerCat.run(distance), time);
     }
 
@@ -34,7 +34,7 @@ public class Test2 extends AbstractAnimalTest {
         String codeException = " ";
         String standardException = " ";
 
-        Cat cat = new Cat(weight);
+        Cat cat = new Cat(weight, "test");
         try {
             cat.run(count);
             Assert.fail("The distance > 0: Distance = " + count);
@@ -57,7 +57,7 @@ public class Test2 extends AbstractAnimalTest {
         String codeException = " ";
         String standardException = " ";
 
-        Cat cat = new Cat(weight);
+        Cat cat = new Cat(weight, "test");
         try {
             cat.run(count);
             Assert.fail("The weight > 0: weight = " + weight);
