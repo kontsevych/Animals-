@@ -16,6 +16,10 @@ public class Kennel {
         kennel.add(animal);
     }
 
+    public int getSize() {
+        return kennel.size();
+    }
+
     public Object returnAnimal(Object animal) throws Throwable {
         ArrayList<Object> animals = new ArrayList<Object>();
 
@@ -48,7 +52,7 @@ public class Kennel {
         kennel.addAnimal(cat2);
         try {
             kennel.returnAnimal(kennel.getClass());
-        } catch (Throwable e){
+        } catch (Throwable e) {
             System.out.println(e);
         }
 
