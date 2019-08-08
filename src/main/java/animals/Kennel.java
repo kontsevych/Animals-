@@ -13,15 +13,22 @@ public class Kennel {
     public ArrayList<Object> kennel = new ArrayList<Object>();
 
 
-    public void addAnimal(Object animal) {
-        kennel.add(animal);
+    public void addAnimal(Object animal) throws InvalidObjectException {
+        if (animal.getClass() == Cat.class) {
+            kennel.add(animal);
+        }
+        if (animal.getClass() == Dog.class) {
+            kennel.add(animal);
+        } else {
+            throw new InvalidObjectException("Wrong animal type");
+        }
     }
 
     public int getSize() {
         return kennel.size();
     }
 
-    public Object returnAnimal(Object animal) throws InvalidObjectException{
+    public Object returnAnimal(Object animal) throws InvalidObjectException {
         ArrayList<Object> animals = new ArrayList<Object>();
 
         for (Object container : kennel) {
