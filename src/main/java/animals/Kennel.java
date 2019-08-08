@@ -10,7 +10,8 @@ import java.util.ArrayList;
  */
 public class Kennel {
 
-    private ArrayList<Object> kennel = new ArrayList<Object>();
+    public ArrayList<Object> kennel = new ArrayList<Object>();
+
 
     public void addAnimal(Object animal) {
         kennel.add(animal);
@@ -20,7 +21,7 @@ public class Kennel {
         return kennel.size();
     }
 
-    public Object returnAnimal(Object animal) throws Throwable {
+    public Object returnAnimal(Object animal) throws InvalidObjectException{
         ArrayList<Object> animals = new ArrayList<Object>();
 
         for (Object container : kennel) {
@@ -44,17 +45,6 @@ public class Kennel {
 
         Kennel kennel = new Kennel();
 
-        kennel.addAnimal(dog);
-        kennel.addAnimal(dog1);
-        kennel.addAnimal(dog2);
-        kennel.addAnimal(cat);
-        kennel.addAnimal(cat1);
-        kennel.addAnimal(cat2);
-        try {
-            kennel.returnAnimal(kennel.getClass());
-        } catch (Throwable e) {
-            System.out.println(e);
-        }
 
     }
 }

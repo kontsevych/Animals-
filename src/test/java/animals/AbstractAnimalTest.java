@@ -1,5 +1,8 @@
 package animals;
 
+import java.io.InvalidObjectException;
+import java.util.ArrayList;
+
 public abstract class AbstractAnimalTest {
 
     protected double getTimeOfDistance(double weight, double distance) {
@@ -13,4 +16,19 @@ public abstract class AbstractAnimalTest {
             return distance / (weight / 2);
         }
     }
+
+    protected Object returnAnimal(Object animal, ArrayList list) throws InvalidObjectException {
+        ArrayList<Object> animals = new ArrayList<Object>();
+
+        for (Object container : list) {
+            if (container.getClass() == animal) {
+                animals.add(container);
+            } else {
+                throw new InvalidObjectException("Can't find this type of animal");
+            }
+        }
+        System.out.println(animals);
+        return animals;
+    }
+
 }
