@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class Test1 extends AbstractAnimalTest {
     @Test
-    public void testAddAnimalException() throws InvalidObjectException {
+    public void testExceptionAddAnimal() throws InvalidObjectException {
         String containerKennel = null;
         String containerTestKennel = null;
 

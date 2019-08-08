@@ -17,17 +17,17 @@ public abstract class AbstractAnimalTest {
         }
     }
 
-    protected Object returnAnimal(Object animal, ArrayList list) throws InvalidObjectException {
+    protected Object returnAnimal(Class animal, ArrayList list) throws InvalidObjectException {
         ArrayList<Object> animals = new ArrayList<Object>();
+        if(animal != Cat.class && animal != Dog.class) {
+            throw new InvalidObjectException("Can't find this type of animal :" + animal);
+        }
 
         for (Object container : list) {
             if (container.getClass() == animal) {
                 animals.add(container);
-            } else {
-                throw new InvalidObjectException("Can't find this type of animal" + animal.getClass());
             }
         }
-        System.out.println(animals);
         return animals;
     }
 
@@ -39,5 +39,8 @@ public abstract class AbstractAnimalTest {
         } else {
             throw new InvalidObjectException("Wrong animal type");
         }
+    }
+    public Object returnAllAnimals(ArrayList animals) throws InvalidObjectException {
+        return animals;
     }
 }
