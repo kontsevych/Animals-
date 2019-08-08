@@ -1,6 +1,5 @@
 package animals.kennel;
 
-import animals.AbstractAnimalTest;
 import animals.Cat;
 import animals.Dog;
 import animals.Kennel;
@@ -8,57 +7,51 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.io.InvalidObjectException;
-import java.util.ArrayList;
 
-public class Test1 extends AbstractAnimalTest {
+public class Test1 {
+
     @Test
-    public void testExceptionAddAnimal() throws InvalidObjectException {
-        String containerKennel = null;
-        String containerTestKennel = null;
-
+    public void testGetDog() throws InvalidObjectException, java.lang.NullPointerException {
         Kennel kennel = new Kennel();
-        ArrayList<Object> testKennel = new ArrayList<Object>();
 
-        try {
-            kennel.addAnimal(kennel);
-        } catch (InvalidObjectException e) {
-            containerKennel = e.getMessage();
-            System.out.println(containerKennel);
+        //Dog[] dog = new Dog[10];
+        Cat[] cat = new Cat[10];
+
+        for (int x = 0; x < 10; x++) {
+            //dog[x] = new Dog(10, "Dog");
+            cat[x] = new Cat(10, "Cat");
+
+            // kennel.addAnimal(dog[x]);
+            kennel.addAnimal(cat[x]);
         }
 
-        try {
-            addAnimal(kennel, testKennel);
-        } catch (InvalidObjectException e) {
-            containerTestKennel = e.getMessage();
-            System.out.println(containerTestKennel);
+        for (Object container : kennel.getDog()) {
+            Assert.assertEquals(container.getClass(), Dog.class);
         }
-
-        Assert.assertEquals(containerKennel, containerTestKennel);
     }
 
     @Test
-    public void testAddAnimal() throws InvalidObjectException {
-
-        Dog dog = new Dog(10, "Donamom");
-        Cat cat = new Cat(5, "Sony");
-        Dog dog2 = new Dog(10, "Doom2");
-        Cat cat2 = new Cat(5, "Sony2");
-
+    public void testExceptionGetDog() throws InvalidObjectException, java.lang.NullPointerException {
         Kennel kennel = new Kennel();
-        ArrayList<Object> testKennel = new ArrayList<Object>();
+        String dogException = null;
+        //Dog[] dog = new Dog[10];
+        Cat[] cat = new Cat[10];
 
-        testKennel.add(dog);
-        testKennel.add(dog2);
-        testKennel.add(cat);
-        testKennel.add(cat2);
+        for (int x = 0; x < 10; x++) {
+            //dog[x] = new Dog(10, "Dog");
+            cat[x] = new Cat(10, "Cat");
 
-        kennel.addAnimal(dog);
-        kennel.addAnimal(dog2);
-        kennel.addAnimal(cat);
-        kennel.addAnimal(cat2);
+            // kennel.addAnimal(dog[x]);
+            kennel.addAnimal(cat[x]);
+        }
+        try {
+            for (Object container : kennel.getDog()) {
+                Assert.assertEquals(container.getClass(), Dog.class);
+            }
+        } catch (NullPointerException e) {
+            dogException = e.getMessage();
+        }
+        Assert.assertEquals(dogException, "There is not dogs in the kennel. \nTry to add dogs and than use this method.");
 
-        System.out.println(kennel);
-
-        Assert.assertEquals(kennel.getSize(), testKennel.size());
     }
 }

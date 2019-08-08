@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * 3. Будка повертає всіх тварин з однаковим ім’ям.
  */
 public class Kennel {
-
+    public final String GET_DOGS_EXCEPTION = "There is not dogs in the kennel. \nTry to add dogs and than use this method.";
     private ArrayList<Object> kennel = new ArrayList<Object>();
 
 
@@ -27,20 +27,32 @@ public class Kennel {
         return kennel.size();
     }
 
-    public Object returnAnimal(Class animal) throws InvalidObjectException {
-        ArrayList<Object> animals = new ArrayList<Object>();
-        if (animal != Cat.class && animal != Dog.class) {
-            throw new InvalidObjectException("Can't find this type of animal: " + animal);
-        }
-            for (Object container : kennel) {
-                if (container.getClass() == animal) {
-                    animals.add(container);
-                }
+    public ArrayList<Object> getDog() throws InvalidObjectException {
+        ArrayList<Object> dogs = new ArrayList<Object>();
+
+        for (Object dogsContainer : kennel) {
+            if (dogsContainer.getClass() == Dog.class) {
+                dogs.add(dogsContainer);
             }
+        }
+        if (dogs.isEmpty()) {
+            throw new NullPointerException(GET_DOGS_EXCEPTION);
+        } else {
+            return dogs;
+        }
+    }
+
+    public ArrayList<Object> getCat() throws InvalidObjectException {
+        ArrayList<Object> animals = new ArrayList<Object>();
+        for (Object container : kennel) {
+            if (container.getClass() == Cat.class) {
+                animals.add(container);
+            }
+        }
         return animals;
     }
 
-    public Object returnAllAnimals() throws InvalidObjectException {
+    public Object returnAllAnimals() {
         return kennel;
     }
 }
