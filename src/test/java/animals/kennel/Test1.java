@@ -11,6 +11,30 @@ import java.io.InvalidObjectException;
 import java.util.ArrayList;
 
 public class Test1 extends AbstractAnimalTest {
+    @Test
+    public void testAddAnimalException() throws InvalidObjectException {
+        String containerKennel = null;
+        String containerTestKennel = null;
+
+        Kennel kennel = new Kennel();
+        ArrayList<Object> testKennel = new ArrayList<Object>();
+
+        try {
+            kennel.addAnimal(kennel);
+        } catch (InvalidObjectException e) {
+            containerKennel = e.getMessage();
+            System.out.println(containerKennel);
+        }
+
+        try {
+            addAnimal(kennel, testKennel);
+        } catch (InvalidObjectException e) {
+            containerTestKennel = e.getMessage();
+            System.out.println(containerTestKennel);
+        }
+
+        Assert.assertEquals(containerKennel, containerTestKennel);
+    }
 
     @Test
     public void testAddAnimal() throws InvalidObjectException {

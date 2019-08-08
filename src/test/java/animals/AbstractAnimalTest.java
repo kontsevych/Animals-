@@ -31,4 +31,14 @@ public abstract class AbstractAnimalTest {
         return animals;
     }
 
+    public void addAnimal(Object animal, ArrayList list) throws InvalidObjectException {
+        if (animal.getClass() == Cat.class) {
+            list.add(animal);
+        }
+        if (animal.getClass() == Dog.class) {
+            list.add(animal);
+        } else {
+            throw new InvalidObjectException("Wrong animal type");
+        }
+    }
 }
