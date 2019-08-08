@@ -10,14 +10,13 @@ import java.util.ArrayList;
  */
 public class Kennel {
 
-    public ArrayList<Object> kennel = new ArrayList<Object>();
+    private ArrayList<Object> kennel = new ArrayList<Object>();
 
 
     public void addAnimal(Object animal) throws InvalidObjectException {
         if (animal.getClass() == Cat.class) {
             kennel.add(animal);
-        }
-        if (animal.getClass() == Dog.class) {
+        } else if (animal.getClass() == Dog.class) {
             kennel.add(animal);
         } else {
             throw new InvalidObjectException("Wrong animal type");
@@ -35,7 +34,7 @@ public class Kennel {
             if (container.getClass() == animal) {
                 animals.add(container);
             } else {
-                throw new InvalidObjectException("Can't find this type of animal");
+                throw new InvalidObjectException("Can't find this type of animal" + animal.getClass());
             }
         }
         System.out.println(animals);

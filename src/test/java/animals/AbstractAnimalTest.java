@@ -24,7 +24,7 @@ public abstract class AbstractAnimalTest {
             if (container.getClass() == animal) {
                 animals.add(container);
             } else {
-                throw new InvalidObjectException("Can't find this type of animal");
+                throw new InvalidObjectException("Can't find this type of animal" + animal.getClass());
             }
         }
         System.out.println(animals);
@@ -34,8 +34,7 @@ public abstract class AbstractAnimalTest {
     public void addAnimal(Object animal, ArrayList list) throws InvalidObjectException {
         if (animal.getClass() == Cat.class) {
             list.add(animal);
-        }
-        if (animal.getClass() == Dog.class) {
+        } else if (animal.getClass() == Dog.class) {
             list.add(animal);
         } else {
             throw new InvalidObjectException("Wrong animal type");
