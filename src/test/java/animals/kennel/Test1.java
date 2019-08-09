@@ -11,7 +11,7 @@ import java.io.InvalidObjectException;
 public class Test1 {
 
     @Test
-    public void testGetDog() throws InvalidObjectException, java.lang.NullPointerException {
+    public void testGetDog() throws  java.lang.NullPointerException {
         Kennel kennel = new Kennel();
 
         Dog[] dog = new Dog[10];

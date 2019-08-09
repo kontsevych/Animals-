@@ -1,5 +1,6 @@
 package animals;
 
+import javax.naming.InvalidNameException;
 import java.util.ArrayList;
 
 /**
@@ -7,21 +8,21 @@ import java.util.ArrayList;
  * * 2. Будка може повертати всіх котів, всіх собак, повертати всіх.
  * 3. Будка повертає всіх тварин з однаковим ім’ям.
  */
-public class Kennel extends Animal{
+public class Kennel extends Animal {
     public final static String GET_DOGS_EXCEPTION = "There is not dogs in the kennel. \nTry to add dogs and than use this method.";
     public final static String GET_CATS_EXCEPTION = "There is not cats in the kennel. \nTry to add dogs and than use this method.";
-    private ArrayList<Object> kennel = new ArrayList<Object>();
+    private ArrayList<Animal> kennel = new ArrayList<Animal>();
 
     public void addAnimal(Animal animal) {
         kennel.add(animal);
     }
 
-    public ArrayList<Object> getDog() throws NullPointerException {
-        ArrayList<Object> dogs = new ArrayList<Object>();
+    public ArrayList<Dog> getDog() throws NullPointerException {
+        ArrayList<Dog> dogs = new ArrayList<Dog>();
 
-        for (Object dogsContainer : kennel) {
+        for (Animal dogsContainer : kennel) {
             if (dogsContainer.getClass() == Dog.class) {
-                dogs.add(dogsContainer);
+                dogs.add((Dog) dogsContainer);
             }
         }
         if (dogs.isEmpty()) {
@@ -31,12 +32,12 @@ public class Kennel extends Animal{
         }
     }
 
-    public ArrayList<Object> getCat() throws NullPointerException {
-        ArrayList<Object> cats = new ArrayList<Object>();
+    public ArrayList<Cat> getCat() throws NullPointerException {
+        ArrayList<Cat> cats = new ArrayList<Cat>();
 
-        for (Object catsContainer : kennel) {
+        for (Animal catsContainer : kennel) {
             if (catsContainer.getClass() == Cat.class) {
-                cats.add(catsContainer);
+                cats.add((Cat) catsContainer);
             }
         }
         if (cats.isEmpty()) {
@@ -46,15 +47,23 @@ public class Kennel extends Animal{
         }
     }
 
-    public ArrayList<Object> getAllPets() {
+    public ArrayList<Animal> getAllPets() {
         return kennel;
     }
 
-    public  void getAnimalByName(String name) {
+    public ArrayList<Animal> getAnimalByName(String name) {
+        ArrayList<Animal> returnList = new ArrayList<Animal>();
 
-        for (Object container: kennel) {
-
-            System.out.println(kennel.iterator());
+        for (Animal container : getAllPets()) {
+            if (container.getAnimalName() == name) {
+                returnList.add(container);
+            }
+        }
+        if (returnList.size() == 0) {
+            throw new IllegalArgumentException("Can't find animal with such name");
+        } else {
+            System.out.println(returnList.size());
+            return returnList;
         }
     }
 }
