@@ -4,12 +4,13 @@ import java.io.InvalidObjectException;
 import java.util.ArrayList;
 
 /**
- * 1. Сервіс "будка". У неї можна додавати собак та котів.
- * 2. Будка може повертати всіх котів, всіх собак, повертати всіх.
+ * * 1. Сервіс "будка". У неї можна додавати собак та котів.
+ * * 2. Будка може повертати всіх котів, всіх собак, повертати всіх.
  * 3. Будка повертає всіх тварин з однаковим ім’ям.
  */
 public class Kennel {
     public final String GET_DOGS_EXCEPTION = "There is not dogs in the kennel. \nTry to add dogs and than use this method.";
+    public final String GET_CATS_EXCEPTION = "There is not cats in the kennel. \nTry to add dogs and than use this method.";
     private ArrayList<Object> kennel = new ArrayList<Object>();
 
 
@@ -43,16 +44,21 @@ public class Kennel {
     }
 
     public ArrayList<Object> getCat() throws InvalidObjectException {
-        ArrayList<Object> animals = new ArrayList<Object>();
-        for (Object container : kennel) {
-            if (container.getClass() == Cat.class) {
-                animals.add(container);
+        ArrayList<Object> cats = new ArrayList<Object>();
+
+        for (Object catsContainer : kennel) {
+            if (catsContainer.getClass() == Cat.class) {
+                cats.add(catsContainer);
             }
         }
-        return animals;
+        if (cats.isEmpty()) {
+            throw new NullPointerException(GET_CATS_EXCEPTION);
+        } else {
+            return cats;
+        }
     }
 
-    public Object returnAllAnimals() {
+    public Object getAllPets() {
         return kennel;
     }
 }
