@@ -4,10 +4,8 @@ import animals.Cat;
 import animals.Dog;
 import animals.Kennel;
 import org.testng.Assert;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import java.io.InvalidObjectException;
 
 public class Test2 {
 

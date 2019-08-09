@@ -1,6 +1,5 @@
 package animals;
 
-import java.io.InvalidObjectException;
 import java.util.ArrayList;
 
 /**
@@ -9,16 +8,12 @@ import java.util.ArrayList;
  * 3. Будка повертає всіх тварин з однаковим ім’ям.
  */
 public class Kennel extends Animal{
-    public final String GET_DOGS_EXCEPTION = "There is not dogs in the kennel. \nTry to add dogs and than use this method.";
-    public final String GET_CATS_EXCEPTION = "There is not cats in the kennel. \nTry to add dogs and than use this method.";
+    public final static String GET_DOGS_EXCEPTION = "There is not dogs in the kennel. \nTry to add dogs and than use this method.";
+    public final static String GET_CATS_EXCEPTION = "There is not cats in the kennel. \nTry to add dogs and than use this method.";
     private ArrayList<Object> kennel = new ArrayList<Object>();
 
-    public void addAnimal(Dog dog) {
-        kennel.add(dog);
-    }
-
-    public void addAnimal(Cat cat) {
-        kennel.add(cat);
+    public void addAnimal(Animal animal) {
+        kennel.add(animal);
     }
 
     public ArrayList<Object> getDog() throws NullPointerException {
@@ -57,12 +52,9 @@ public class Kennel extends Animal{
 
     public  void getAnimalByName(String name) {
 
-        for (Object containerAnimals: getAllPets()) {
-            if(containerAnimals == name) {
+        for (Object container: kennel) {
 
-            }
+            System.out.println(kennel.iterator());
         }
-
-
     }
 }
