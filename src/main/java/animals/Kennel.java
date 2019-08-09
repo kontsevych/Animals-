@@ -2,37 +2,59 @@ package animals;
 
 import java.util.ArrayList;
 
-public class Kennel {
+/**
+ * * 1. Сервіс "будка". У неї можна додавати собак та котів.
+ * * 2. Будка може повертати всіх котів, всіх собак, повертати всіх.
+ * 3. Будка повертає всіх тварин з однаковим ім’ям.
+ */
+public class Kennel extends Animal{
+    public final static String GET_DOGS_EXCEPTION = "There is not dogs in the kennel. \nTry to add dogs and than use this method.";
+    public final static String GET_CATS_EXCEPTION = "There is not cats in the kennel. \nTry to add dogs and than use this method.";
+    private ArrayList<Object> kennel = new ArrayList<Object>();
 
-    ArrayList<Object> animal = new ArrayList<Object>();
+    public void addAnimal(Animal animal) {
+        kennel.add(animal);
+    }
 
-    Dog dog = new Dog(10);
-    Dog dog2 = new Dog(10);
-    Dog dog3 = new Dog(10);
-    Cat cat = new Cat(10);
+    public ArrayList<Object> getDog() throws NullPointerException {
+        ArrayList<Object> dogs = new ArrayList<Object>();
 
-
-
-    public void getAnimal() {
-        animal.add(dog);
-        animal.add(dog2);
-        animal.add(dog3);
-        animal.add(cat);
-//Додати ще два лісти
-        for(Object i:animal ){
-            if (i.getClass() == dog.getClass()){
-
+        for (Object dogsContainer : kennel) {
+            if (dogsContainer.getClass() == Dog.class) {
+                dogs.add(dogsContainer);
             }
         }
-        System.out.println(animal.get(1).getClass());
+        if (dogs.isEmpty()) {
+            throw new NullPointerException(GET_DOGS_EXCEPTION);
+        } else {
+            return dogs;
+        }
     }
 
-    int size = animal.size();
+    public ArrayList<Object> getCat() throws NullPointerException {
+        ArrayList<Object> cats = new ArrayList<Object>();
 
-    public static void main(String[] args) {
-        Kennel kennel = new Kennel();
-
-        kennel.calsss();
+        for (Object catsContainer : kennel) {
+            if (catsContainer.getClass() == Cat.class) {
+                cats.add(catsContainer);
+            }
+        }
+        if (cats.isEmpty()) {
+            throw new NullPointerException(GET_CATS_EXCEPTION);
+        } else {
+            return cats;
+        }
     }
 
+    public ArrayList<Object> getAllPets() {
+        return kennel;
+    }
+
+    public  void getAnimalByName(String name) {
+
+        for (Object container: kennel) {
+
+            System.out.println(kennel.iterator());
+        }
+    }
 }
