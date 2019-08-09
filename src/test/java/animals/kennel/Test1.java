@@ -51,7 +51,7 @@ public class Test1 {
     }
 
     @Test
-    public void testExceptionGetDog() throws InvalidObjectException, java.lang.NullPointerException {
+    public void testExceptionGetDog() throws java.lang.NullPointerException {
         boolean result = false;
 
         Kennel kennel = new Kennel();
@@ -70,7 +70,7 @@ public class Test1 {
     }
 
     @Test
-    public void testExceptionGetCat() throws InvalidObjectException, java.lang.NullPointerException {
+    public void testExceptionGetCat() throws java.lang.NullPointerException {
         boolean result = false;
 
         Kennel kennel = new Kennel();
@@ -89,7 +89,7 @@ public class Test1 {
     }
 
     @Test
-    public void testGetAllPets() throws NullPointerException, InvalidObjectException {
+    public void testGetAllPets() throws NullPointerException {
         Kennel kennel = new Kennel();
         boolean result = false;
 

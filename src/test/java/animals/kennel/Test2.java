@@ -12,7 +12,7 @@ import java.io.InvalidObjectException;
 public class Test2 {
 
     @Test
-    public void testAddDog() throws InvalidObjectException {
+    public void testAddDog() throws NullPointerException {
         boolean result = false;
 
         Kennel kennel = new Kennel();
@@ -27,7 +27,7 @@ public class Test2 {
     }
 
     @Test
-    public void testAddCat() throws InvalidObjectException {
+    public void testAddCat() throws NullPointerException {
         boolean result = false;
 
         Kennel kennel = new Kennel();

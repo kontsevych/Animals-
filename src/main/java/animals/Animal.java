@@ -13,7 +13,7 @@ public class Animal {
         return weight;
     }
 
-    public String getName() {
+    public String getAnimalName() {
         return name;
     }
 
