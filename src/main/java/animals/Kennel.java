@@ -58,7 +58,7 @@ public class Kennel {
         }
     }
 
-    public Object getAllPets() {
+    public ArrayList<Object> getAllPets() {
         return kennel;
     }
 }

@@ -7,6 +7,9 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.io.InvalidObjectException;
+import java.util.ArrayList;
+
+import static org.testng.Assert.fail;
 
 public class Test1 {
 
@@ -61,7 +64,7 @@ public class Test1 {
         }
         try {
             kennel.getDog();
-            Assert.assertTrue(false);
+            fail();
         } catch (NullPointerException e) {
             Assert.assertTrue(true);
         }
@@ -78,7 +81,7 @@ public class Test1 {
         }
         try {
             kennel.getCat();
-            Assert.assertTrue(false);
+            fail();
         } catch (NullPointerException e) {
             Assert.assertTrue(true);
         }
@@ -97,7 +100,10 @@ public class Test1 {
             kennel.addAnimal(dog[x]);
             kennel.addAnimal(cat[x]);
         }
-        kennel.getAllPets();
+
+        for (Object petsContainer : kennel.getAllPets()) {
+            
+        }
 
     }
 }
