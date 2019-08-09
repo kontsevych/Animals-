@@ -1,6 +1,5 @@
 package animals.kennel;
 
-import animals.Animal;
 import animals.Cat;
 import animals.Dog;
 import animals.Kennel;
@@ -26,6 +25,6 @@ public class Test3 {
         }
 
         kennel.getAnimalByName("Dog");
-        
+
     }
 }

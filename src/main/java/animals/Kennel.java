@@ -1,6 +1,5 @@
 package animals;
 
-import javax.naming.InvalidNameException;
 import java.util.ArrayList;
 
 /**
