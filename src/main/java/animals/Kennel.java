@@ -13,7 +13,6 @@ public class Kennel {
     public final String GET_CATS_EXCEPTION = "There is not cats in the kennel. \nTry to add dogs and than use this method.";
     private ArrayList<Object> kennel = new ArrayList<Object>();
 
-
     public void addAnimal(Object animal) throws InvalidObjectException {
         if (animal.getClass() == Cat.class) {
             kennel.add(animal);
@@ -22,10 +21,6 @@ public class Kennel {
         } else {
             throw new InvalidObjectException("Wrong animal type");
         }
-    }
-
-    public int getSize() {
-        return kennel.size();
     }
 
     public ArrayList<Object> getDog() throws InvalidObjectException {
@@ -59,6 +54,17 @@ public class Kennel {
     }
 
     public ArrayList<Object> getAllPets() {
+        return kennel;
+    }
+
+    public ArrayList<Object> getAnimalByName(String name) {
+        Animal animal = new Animal();
+
+
+        for (Object containerAnimals: kennel) {
+            containerAnimals.getClass();
+        }
+
         return kennel;
     }
 }

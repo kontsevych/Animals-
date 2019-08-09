@@ -7,9 +7,6 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.io.InvalidObjectException;
-import java.util.ArrayList;
-
-import static org.testng.Assert.fail;
 
 public class Test1 {
 
@@ -55,6 +52,8 @@ public class Test1 {
 
     @Test
     public void testExceptionGetDog() throws InvalidObjectException, java.lang.NullPointerException {
+        boolean result = false;
+
         Kennel kennel = new Kennel();
         Cat[] cat = new Cat[10];
 
@@ -64,14 +63,16 @@ public class Test1 {
         }
         try {
             kennel.getDog();
-            fail();
         } catch (NullPointerException e) {
-            Assert.assertTrue(true);
+            result = true;
         }
+        Assert.assertTrue(true);
     }
 
     @Test
     public void testExceptionGetCat() throws InvalidObjectException, java.lang.NullPointerException {
+        boolean result = false;
+
         Kennel kennel = new Kennel();
         Dog[] dog = new Dog[10];
 
@@ -81,15 +82,16 @@ public class Test1 {
         }
         try {
             kennel.getCat();
-            fail();
         } catch (NullPointerException e) {
-            Assert.assertTrue(true);
+            result = true;
         }
+        Assert.assertTrue(result);
     }
 
     @Test
     public void testGetAllPets() throws NullPointerException, InvalidObjectException {
         Kennel kennel = new Kennel();
+        boolean result = false;
 
         Dog[] dog = new Dog[10];
         Cat[] cat = new Cat[10];
@@ -102,8 +104,8 @@ public class Test1 {
         }
 
         for (Object petsContainer : kennel.getAllPets()) {
-            
+            result = petsContainer.getClass() == Cat.class || petsContainer.getClass() == Dog.class;
         }
-
+        Assert.assertTrue(result);
     }
 }

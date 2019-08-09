@@ -1,8 +1,5 @@
 package animals;
 
-import java.io.InvalidObjectException;
-import java.util.ArrayList;
-
 public abstract class AbstractAnimalTest {
 
     protected double getTimeOfDistance(double weight, double distance) {
