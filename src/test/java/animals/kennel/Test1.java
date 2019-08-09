@@ -66,7 +66,7 @@ public class Test1 {
         } catch (NullPointerException e) {
             result = true;
         }
-        Assert.assertTrue(true);
+        Assert.assertTrue(result);
     }
 
     @Test
