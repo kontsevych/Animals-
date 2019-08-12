@@ -7,19 +7,19 @@ import java.util.ArrayList;
  * * 2. Будка може повертати всіх котів, всіх собак, повертати всіх.
  * 3. Будка повертає всіх тварин з однаковим ім’ям.
  */
-public class Kennel extends Animal{
+public class Kennel extends Animal {
     public final static String GET_DOGS_EXCEPTION = "There is not dogs in the kennel. \nTry to add dogs and than use this method.";
     public final static String GET_CATS_EXCEPTION = "There is not cats in the kennel. \nTry to add dogs and than use this method.";
-    private ArrayList<Object> kennel = new ArrayList<Object>();
+    private ArrayList<Animal> kennel = new ArrayList<Animal>();
 
     public void addAnimal(Animal animal) {
         kennel.add(animal);
     }
 
-    public ArrayList<Object> getDog() throws NullPointerException {
-        ArrayList<Object> dogs = new ArrayList<Object>();
+    public ArrayList<Animal> getDog() throws NullPointerException {
+        ArrayList<Animal> dogs = new ArrayList<Animal>();
 
-        for (Object dogsContainer : kennel) {
+        for (Animal dogsContainer : kennel) {
             if (dogsContainer.getClass() == Dog.class) {
                 dogs.add(dogsContainer);
             }
@@ -50,11 +50,10 @@ public class Kennel extends Animal{
         return kennel;
     }
 
-    public  void getAnimalByName(String name) {
+    public void getAnimalByName(String name) {
 
-        for (Object container: kennel) {
+        for (Object cont : getDog()) {
 
-            System.out.println(kennel.iterator());
         }
     }
 }
