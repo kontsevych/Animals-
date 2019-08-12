@@ -16,12 +16,12 @@ public class Kennel extends Animal {
         kennel.add(animal);
     }
 
-    public ArrayList<Animal> getDog() throws NullPointerException {
-        ArrayList<Animal> dogs = new ArrayList<Animal>();
+    public ArrayList<Dog> getDog() throws NullPointerException {
+        ArrayList<Dog> dogs = new ArrayList<Dog>();
 
         for (Animal dogsContainer : kennel) {
             if (dogsContainer.getClass() == Dog.class) {
-                dogs.add(dogsContainer);
+                dogs.add((Dog) dogsContainer);
             }
         }
         if (dogs.isEmpty()) {
@@ -31,12 +31,12 @@ public class Kennel extends Animal {
         }
     }
 
-    public ArrayList<Object> getCat() throws NullPointerException {
-        ArrayList<Object> cats = new ArrayList<Object>();
+    public ArrayList<Cat> getCat() throws NullPointerException {
+        ArrayList<Cat> cats = new ArrayList<Cat>();
 
-        for (Object catsContainer : kennel) {
+        for (Animal catsContainer : kennel) {
             if (catsContainer.getClass() == Cat.class) {
-                cats.add(catsContainer);
+                cats.add((Cat) catsContainer);
             }
         }
         if (cats.isEmpty()) {
@@ -46,14 +46,23 @@ public class Kennel extends Animal {
         }
     }
 
-    public ArrayList<Object> getAllPets() {
+    public ArrayList<Animal> getAllPets() {
         return kennel;
     }
 
-    public void getAnimalByName(String name) {
+    public ArrayList<Animal> getAnimalByName(String name) {
+        ArrayList<Animal> returnList = new ArrayList<Animal>();
 
-        for (Object cont : getDog()) {
-
+        for (Animal container : getAllPets()) {
+            if (container.getAnimalName() == name) {
+                returnList.add(container);
+            }
+        }
+        if (returnList.size() == 0) {
+            throw new IllegalArgumentException("Can't find animal with such name");
+        } else {
+            System.out.println(returnList.size());
+            return returnList;
         }
     }
 }
