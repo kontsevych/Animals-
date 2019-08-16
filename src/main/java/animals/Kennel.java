@@ -16,34 +16,46 @@ public class Kennel extends Animal {
         kennel.add(animal);
     }
 
+    public ArrayList<Animal> getAnimals(Class animal) {
+        ArrayList<Animal> animals = new ArrayList<Animal>();
+
+        for (Animal animalContainer : kennel) {
+            if (animalContainer.getClass() == Dog.class) {
+                animals.add((Dog) animalContainer);
+            } else if (animalContainer.getClass() == Cat.class) {
+                animals.add((Cat) animalContainer);
+            }
+            throw new IllegalArgumentException("Can't find Animal" + animal);
+        }
+        return animals;
+    }
+
     public ArrayList<Dog> getDog() throws NullPointerException {
         ArrayList<Dog> dogs = new ArrayList<Dog>();
 
-        for (Animal dogsContainer : kennel) {
-            if (dogsContainer.getClass() == Dog.class) {
-                dogs.add((Dog) dogsContainer);
+        for (Animal dogContainer : kennel) {
+            if (dogContainer.getClass() == Dog.class) {
+                dogs.add((Dog) dogContainer);
             }
         }
         if (dogs.isEmpty()) {
             throw new NullPointerException(GET_DOGS_EXCEPTION);
-        } else {
-            return dogs;
         }
+        return dogs;
     }
 
     public ArrayList<Cat> getCat() throws NullPointerException {
         ArrayList<Cat> cats = new ArrayList<Cat>();
 
-        for (Animal catsContainer : kennel) {
-            if (catsContainer.getClass() == Cat.class) {
-                cats.add((Cat) catsContainer);
+        for (Animal catContainer : kennel) {
+            if (catContainer.getClass() == Cat.class) {
+                cats.add((Cat) catContainer);
             }
         }
         if (cats.isEmpty()) {
             throw new NullPointerException(GET_CATS_EXCEPTION);
-        } else {
-            return cats;
         }
+        return cats;
     }
 
     public ArrayList<Animal> getAllPets() {
@@ -60,9 +72,7 @@ public class Kennel extends Animal {
         }
         if (returnList.size() == 0) {
             throw new IllegalArgumentException("Can't find animal with such name");
-        } else {
-            System.out.println(returnList.size());
-            return returnList;
         }
+        return returnList;
     }
 }
