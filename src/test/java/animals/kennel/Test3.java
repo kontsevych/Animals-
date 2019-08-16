@@ -16,7 +16,7 @@ public class Test3 {
         Cat[] cat = new Cat[10];
 
         for (int container = 0; container < 10; container++) {
-            dog[container] = new Dog(10, "Dog" + x);
+            dog[container] = new Dog(10, "Dog" + container);
             cat[container] = new Cat(10, "Dog");
             kennel.addAnimal(dog[container]);
             kennel.addAnimal(cat[container]);
