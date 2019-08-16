@@ -15,13 +15,13 @@ public class Test3 {
         Dog[] dog = new Dog[10];
         Cat[] cat = new Cat[10];
 
-        for (int x = 0; x < 10; x++) {
-            dog[x] = new Dog(10, "Dog" + x);
-            cat[x] = new Cat(10, "Dog");
-            kennel.addAnimal(dog[x]);
-            kennel.addAnimal(cat[x]);
+        for (int container = 0; container < 10; container++) {
+            dog[container] = new Dog(10, "Dog" + x);
+            cat[container] = new Cat(10, "Dog");
+            kennel.addAnimal(dog[container]);
+            kennel.addAnimal(cat[container]);
 
-            System.out.println(dog[x].getAnimalName());
+            System.out.println(dog[container].getAnimalName());
         }
 
         kennel.getAnimalByName("Dog");
