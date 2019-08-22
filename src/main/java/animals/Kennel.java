@@ -30,7 +30,7 @@ public class Kennel extends Animal {
         return animals;
     }
 
-    public ArrayList<Dog> getDog() throws NullPointerException {
+    public ArrayList<Dog> getDogs() throws NullPointerException {
         ArrayList<Dog> dogs = new ArrayList<Dog>();
 
         for (Animal dogContainer : kennel) {
@@ -44,7 +44,7 @@ public class Kennel extends Animal {
         return dogs;
     }
 
-    public ArrayList<Cat> getCat() throws NullPointerException {
+    public ArrayList<Cat> getCats() throws NullPointerException {
         ArrayList<Cat> cats = new ArrayList<Cat>();
 
         for (Animal catContainer : kennel) {

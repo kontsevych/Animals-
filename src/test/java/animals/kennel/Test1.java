@@ -26,7 +26,7 @@ public class Test1 extends Animal {
             kennel.addAnimal(cat[counter]);
         }
 
-        for (Object container : kennel.getDog()) {
+        for (Dog container : kennel.getDogs()) {
             Assert.assertEquals(container.getClass(), Dog.class);
         }
     }
@@ -46,7 +46,7 @@ public class Test1 extends Animal {
             kennel.addAnimal(cat[counter]);
         }
 
-        for (Object container : kennel.getCat()) {
+        for (Object container : kennel.getCats()) {
             Assert.assertEquals(container.getClass(), Cat.class);
         }
     }
@@ -63,7 +63,7 @@ public class Test1 extends Animal {
             kennel.addAnimal(cat[counter]);
         }
         try {
-            kennel.getDog();
+            kennel.getDogs();
         } catch (NullPointerException e) {
             result = true;
         }
@@ -82,7 +82,7 @@ public class Test1 extends Animal {
             kennel.addAnimal(dog[counter]);
         }
         try {
-            kennel.getCat();
+            kennel.getCats();
         } catch (NullPointerException e) {
             result = true;
         }

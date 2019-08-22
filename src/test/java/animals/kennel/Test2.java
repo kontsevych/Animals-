@@ -18,7 +18,7 @@ public class Test2 {
 
         kennel.addAnimal(dog);
 
-        for (Object container : kennel.getDog()) {
+        for (Object container : kennel.getDogs()) {
             result = container == dog;
         }
         Assert.assertTrue(result);
@@ -33,7 +33,7 @@ public class Test2 {
 
         kennel.addAnimal(cat);
 
-        for (Object container : kennel.getCat()) {
+        for (Object container : kennel.getCats()) {
             result = container == cat;
         }
         Assert.assertTrue(result);
