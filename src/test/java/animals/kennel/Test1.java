@@ -32,7 +32,7 @@ public class Test1 extends Animal {
     }
 
     @Test
-    public void testGetCat() throws InvalidObjectException, java.lang.NullPointerException {
+    public void testGetCat() throws java.lang.NullPointerException {
         Kennel kennel = new Kennel();
 
         Dog[] dog = new Dog[10];
@@ -120,7 +120,7 @@ public class Test1 extends Animal {
 
         for (int counter = 0; counter < 10; counter++) {
             dog[counter] = new Dog(10, "Dog");
-            cat[counter] = new Cat(10, "Dog");
+            cat[counter] = new Cat(10, "Cat");
             kennel.addAnimal(dog[counter]);
             kennel.addAnimal(cat[counter]);
         }
