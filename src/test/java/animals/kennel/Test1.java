@@ -7,7 +7,6 @@ import animals.Kennel;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.io.InvalidObjectException;
 
 public class Test1 extends Animal {
 
@@ -15,18 +14,12 @@ public class Test1 extends Animal {
     public void testGetDog() throws java.lang.NullPointerException {
         Kennel kennel = new Kennel();
 
-        Dog[] dog = new Dog[10];
-        Cat[] cat = new Cat[10];
-
         for (int counter = 0; counter < 10; counter++) {
-            dog[counter] = new Dog(10, "Dog");
-            cat[counter] = new Cat(10, "Cat");
-
-            kennel.addAnimal(dog[counter]);
-            kennel.addAnimal(cat[counter]);
+            kennel.addAnimal(new Dog(10, "Dog" + counter));
+            kennel.addAnimal(new Cat(10, "Cat" + counter));
         }
 
-        for (Dog container : kennel.getDogs()) {
+        for (Object container : kennel.getDogs()) {
             Assert.assertEquals(container.getClass(), Dog.class);
         }
     }
@@ -35,15 +28,10 @@ public class Test1 extends Animal {
     public void testGetCat() throws java.lang.NullPointerException {
         Kennel kennel = new Kennel();
 
-        Dog[] dog = new Dog[10];
-        Cat[] cat = new Cat[10];
-
         for (int counter = 0; counter < 10; counter++) {
-            dog[counter] = new Dog(10, "Dog");
-            cat[counter] = new Cat(10, "Cat");
 
-            kennel.addAnimal(dog[counter]);
-            kennel.addAnimal(cat[counter]);
+            kennel.addAnimal(new Dog(10, "Dog"));
+            kennel.addAnimal(new Cat(10, "Cat"));
         }
 
         for (Object container : kennel.getCats()) {
@@ -56,11 +44,9 @@ public class Test1 extends Animal {
         boolean result = false;
 
         Kennel kennel = new Kennel();
-        Cat[] cat = new Cat[10];
 
         for (int counter = 0; counter < 10; counter++) {
-            cat[counter] = new Cat(10, "Cat");
-            kennel.addAnimal(cat[counter]);
+            kennel.addAnimal(new Cat(10, "Cat"));
         }
         try {
             kennel.getDogs();
@@ -75,11 +61,11 @@ public class Test1 extends Animal {
         boolean result = false;
 
         Kennel kennel = new Kennel();
-        Dog[] dog = new Dog[10];
 
         for (int counter = 0; counter < 10; counter++) {
-            dog[counter] = new Dog(10, "Dog");
-            kennel.addAnimal(dog[counter]);
+
+            kennel.addAnimal(new Dog(10, "Dog"));
+
         }
         try {
             kennel.getCats();
@@ -92,23 +78,18 @@ public class Test1 extends Animal {
     @Test
     public void testGetAllPets() throws NullPointerException {
         Kennel kennel = new Kennel();
-        boolean result = false;
 
-        Dog[] dog = new Dog[10];
-        Cat[] cat = new Cat[10];
+        int petQuantity = 10;
 
-        for (int counter = 0; counter < 10; counter++) {
-            dog[counter] = new Dog(10, "Dog");
-            cat[counter] = new Cat(10, "Dog");
-            kennel.addAnimal(dog[counter]);
-            kennel.addAnimal(cat[counter]);
+        for (int counter = 0; counter < petQuantity; counter++) {
+            kennel.addAnimal(new Dog(10, "Dog"));
+            kennel.addAnimal(new Cat(10, "Cat"));
         }
 
-        if (dog.length + cat.length == kennel.getAllPets().size()) {
-            for (Animal petsContainer : kennel.getAllPets()) {
-                result = petsContainer.getClass() == Cat.class || petsContainer.getClass() == Dog.class;
-            }
-        }
-        Assert.assertTrue(result);
+        Assert.assertEquals(kennel.getAllPets(), kennel.getCats().size() + kennel.getDogs().size());
+        Assert.assertEquals(kennel.getCats().size(), petQuantity);
+        Assert.assertEquals(kennel.getDogs().size(), petQuantity);
     }
+
 }
+

@@ -11,22 +11,19 @@ public class Test2 {
 
     @Test
     public void testAddDog() throws NullPointerException {
-        boolean result = false;
 
         Kennel kennel = new Kennel();
-        Dog dog = new Dog(10, "Doom");
 
-        kennel.addAnimal(dog);
+        kennel.addAnimal(new Dog(10, "Doom"));
 
         for (Object container : kennel.getDogs()) {
-            result = container == dog;
+            Assert.assertEquals(container.getClass(), Dog.class);
         }
-        Assert.assertTrue(result);
+
     }
 
     @Test
     public void testAddCat() throws NullPointerException {
-        boolean result = false;
 
         Kennel kennel = new Kennel();
         Cat cat = new Cat(10, "Doom");
@@ -34,9 +31,8 @@ public class Test2 {
         kennel.addAnimal(cat);
 
         for (Object container : kennel.getCats()) {
-            result = container == cat;
+            Assert.assertEquals(container.getClass(), Cat.class);
         }
-        Assert.assertTrue(result);
     }
 
 }
