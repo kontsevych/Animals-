@@ -62,7 +62,23 @@ public class Kennel extends Animal {
         return kennel;
     }
 
-    public ArrayList<Animal> getAnimalByName(String name) {
+    public Animal getAnimalByName(String name) {
+
+        Animal animal = null;
+
+        for (Animal container : getAllPets()) {
+            if (container.getAnimalName() == name) {
+                animal = container;
+            }
+        }
+
+        if (animal == null) {
+            throw new IllegalArgumentException("Can't find animal with such name: " + name);
+        }
+        return animal;
+    }
+
+    public ArrayList<Animal> getAnimalsByName(String name) {
         ArrayList<Animal> returnList = new ArrayList<Animal>();
 
         for (Animal container : getAllPets()) {
@@ -75,4 +91,5 @@ public class Kennel extends Animal {
         }
         return returnList;
     }
+
 }
