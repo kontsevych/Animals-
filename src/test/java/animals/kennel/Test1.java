@@ -86,7 +86,7 @@ public class Test1 extends Animal {
             kennel.addAnimal(new Cat(10, "Cat"));
         }
 
-        Assert.assertEquals(kennel.getAllPets(), kennel.getCats().size() + kennel.getDogs().size());
+        Assert.assertEquals(kennel.getAllPets().size(), kennel.getCats().size() + kennel.getDogs().size());
         Assert.assertEquals(kennel.getCats().size(), petQuantity);
         Assert.assertEquals(kennel.getDogs().size(), petQuantity);
     }
