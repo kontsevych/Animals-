@@ -4,12 +4,13 @@ import animals.Animal;
 import animals.Cat;
 import animals.Dog;
 import animals.Kennel;
+import exception.KennelExceptions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class Test3 {
     @Test
-    public void testGetAnimalByName() {
+    public void testGetAnimalByName() throws KennelExceptions {
 
         Kennel kennel = new Kennel();
 
@@ -25,7 +26,7 @@ public class Test3 {
     }
 
     @Test
-    public void testGetAnimalsByName() {
+    public void testGetAnimalsByName() throws KennelExceptions {
         // Створюю нову будку для тесту
         Kennel kennel = new Kennel();
         //Відокремлюю імета які часто використовую

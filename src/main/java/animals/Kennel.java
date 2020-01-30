@@ -1,22 +1,21 @@
 package animals;
 
+import exception.KennelExceptions;
+
 import java.util.ArrayList;
 
-/**
- * * 1. Сервіс "будка". У неї можна додавати собак та котів.
- * * 2. Будка може повертати всіх котів, всіх собак, повертати всіх.
- * 3. Будка повертає всіх тварин з однаковим ім’ям.
- */
 public class Kennel extends Animal {
     public final static String GET_DOGS_EXCEPTION = "There is not dogs in the kennel. \nTry to add dogs and than use this method.";
     public final static String GET_CATS_EXCEPTION = "There is not cats in the kennel. \nTry to add dogs and than use this method.";
+    public final static String GET_ANIMAL_BY_NAME = "Can't find animal with such name: ";
+
     private ArrayList<Animal> kennel = new ArrayList<Animal>();
 
     public void addAnimal(Animal animal) {
         kennel.add(animal);
     }
 
-    public ArrayList<Animal> getAnimals(Class animal) {
+    public ArrayList<Animal> getAnimals(Class animal) throws KennelExceptions {
         ArrayList<Animal> animals = new ArrayList<Animal>();
 
         for (Animal animalContainer : kennel) {
@@ -25,12 +24,12 @@ public class Kennel extends Animal {
             } else if (animalContainer.getClass() == Cat.class) {
                 animals.add((Cat) animalContainer);
             }
-            throw new IllegalArgumentException("Can't find Animal" + animal);
+            throw new KennelExceptions("Can't find Animal" + animal);
         }
         return animals;
     }
 
-    public ArrayList<Dog> getDogs() throws NullPointerException {
+    public ArrayList<Dog> getDogs() throws KennelExceptions {
         ArrayList<Dog> dogs = new ArrayList<Dog>();
 
         for (Animal dogContainer : kennel) {
@@ -39,12 +38,12 @@ public class Kennel extends Animal {
             }
         }
         if (dogs.isEmpty()) {
-            throw new NullPointerException(GET_DOGS_EXCEPTION);
+            throw new KennelExceptions(GET_DOGS_EXCEPTION);
         }
         return dogs;
     }
 
-    public ArrayList<Cat> getCats() throws NullPointerException {
+    public ArrayList<Cat> getCats() throws KennelExceptions {
         ArrayList<Cat> cats = new ArrayList<Cat>();
 
         for (Animal catContainer : kennel) {
@@ -53,7 +52,7 @@ public class Kennel extends Animal {
             }
         }
         if (cats.isEmpty()) {
-            throw new NullPointerException(GET_CATS_EXCEPTION);
+            throw new KennelExceptions(GET_CATS_EXCEPTION);
         }
         return cats;
     }
@@ -62,7 +61,7 @@ public class Kennel extends Animal {
         return kennel;
     }
 
-    public Animal getAnimalByName(String name) {
+    public Animal getAnimalByName(String name) throws KennelExceptions {
 
         Animal animal = null;
 
@@ -73,12 +72,12 @@ public class Kennel extends Animal {
         }
 
         if (animal == null) {
-            throw new IllegalArgumentException("Can't find animal with such name: " + name);
+            throw new KennelExceptions(GET_ANIMAL_BY_NAME + name);
         }
         return animal;
     }
 
-    public ArrayList<Animal> getAnimalsByName(String name) {
+    public ArrayList<Animal> getAnimalsByName(String name) throws KennelExceptions {
         ArrayList<Animal> returnList = new ArrayList<Animal>();
 
         for (Animal container : getAllPets()) {
@@ -87,7 +86,7 @@ public class Kennel extends Animal {
             }
         }
         if (returnList.size() == 0) {
-            throw new IllegalArgumentException("Can't find animals with such name");
+            throw new KennelExceptions(GET_ANIMAL_BY_NAME + name);
         }
         return returnList;
     }

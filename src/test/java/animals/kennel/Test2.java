@@ -4,6 +4,7 @@ import animals.Animal;
 import animals.Cat;
 import animals.Dog;
 import animals.Kennel;
+import exception.KennelExceptions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -12,7 +13,7 @@ public class Test2 {
 
 
     @Test
-    public void testAddDog() throws NullPointerException {
+    public void testAddDog() throws KennelExceptions {
 
         Kennel kennel = new Kennel();
 
@@ -25,7 +26,7 @@ public class Test2 {
     }
 
     @Test
-    public void testAddCat() throws NullPointerException {
+    public void testAddCat() throws KennelExceptions {
 
         Kennel kennel = new Kennel();
 

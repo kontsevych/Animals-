@@ -4,6 +4,7 @@ import animals.Animal;
 import animals.Cat;
 import animals.Dog;
 import animals.Kennel;
+import exception.KennelExceptions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -11,7 +12,7 @@ import org.testng.annotations.Test;
 public class Test1 extends Animal {
 
     @Test
-    public void testGetDogs() throws java.lang.NullPointerException {
+    public void testGetDogs() throws KennelExceptions {
         Kennel kennel = new Kennel();
         int animalsQuantity = 10;
 
@@ -28,7 +29,7 @@ public class Test1 extends Animal {
     }
 
     @Test
-    public void testGetCats() throws java.lang.NullPointerException {
+    public void testGetCats() throws KennelExceptions {
         Kennel kennel = new Kennel();
 
         int animalsQuantity = 10;
@@ -46,7 +47,7 @@ public class Test1 extends Animal {
     }
 
     @Test
-    public void testExceptionGetDogs() throws java.lang.NullPointerException {
+    public void testExceptionGetDogs() throws KennelExceptions {
 
         Kennel kennel = new Kennel();
 
@@ -55,14 +56,13 @@ public class Test1 extends Animal {
         }
         try {
             kennel.getDogs();
-        } catch (NullPointerException e) {
-            assert true;
+        } catch (KennelExceptions e) {
+            Assert.assertEquals(Kennel.GET_DOGS_EXCEPTION, e.toString());
         }
-
     }
 
     @Test
-    public void testExceptionGetCats() throws java.lang.NullPointerException {
+    public void testExceptionGetCats() throws KennelExceptions {
 
 
         Kennel kennel = new Kennel();
@@ -70,17 +70,16 @@ public class Test1 extends Animal {
         for (int counter = 0; counter < 10; counter++) {
 
             kennel.addAnimal(new Dog());
-
         }
         try {
             kennel.getCats();
-        } catch (NullPointerException e) {
-            assert true;
+        } catch (KennelExceptions e) {
+            Assert.assertEquals(Kennel.GET_CATS_EXCEPTION, e.toString());
         }
     }
 
     @Test
-    public void testGetAllPets() throws NullPointerException {
+    public void testGetAllPets() throws KennelExceptions {
         Kennel kennel = new Kennel();
 
         int petQuantity = 10;
