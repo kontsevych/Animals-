@@ -24,7 +24,7 @@ public class Kennel extends Animal {
             } else if (animalContainer.getClass() == Cat.class) {
                 animals.add((Cat) animalContainer);
             }
-            throw new KennelExceptions("Can't find Animal" + animal);
+            throw new KennelExceptions("Can't find the animal: " + animal);
         }
         return animals;
     }
@@ -81,6 +81,20 @@ public class Kennel extends Animal {
         ArrayList<Animal> returnList = new ArrayList<Animal>();
 
         for (Animal container : getAllPets()) {
+            if (container.getName().equals(name)) {
+                returnList.add(container);
+            }
+        }
+        if (returnList.size() == 0) {
+            throw new KennelExceptions(GET_ANIMAL_BY_NAME + name);
+        }
+        return returnList;
+    }
+
+    public ArrayList<Animal> getDogsByName(String name) throws KennelExceptions {
+        ArrayList<Animal> returnList = new ArrayList<Animal>();
+
+        for (Animal container : getDogs()) {
             if (container.getName().equals(name)) {
                 returnList.add(container);
             }

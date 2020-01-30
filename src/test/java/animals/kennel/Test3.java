@@ -29,7 +29,7 @@ public class Test3 {
     public void testGetAnimalsByName() throws KennelExceptions {
         // Створюю нову будку для тесту
         Kennel kennel = new Kennel();
-        //Відокремлюю імета які часто використовую
+        //Відокремлюю імена які часто використовую
 
         String dogName = "Гавчик";
         String catName = "Кусослав";
@@ -61,5 +61,13 @@ public class Test3 {
             Assert.assertEquals(stupidName, animal.getName());
         }
 
+    }
+
+    @Test
+    public void testGetDogByName() throws KennelExceptions {
+
+        Kennel kennel = new Kennel();
+
+        String dogName = "";
     }
 }
