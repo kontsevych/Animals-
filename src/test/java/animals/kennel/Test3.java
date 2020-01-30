@@ -16,8 +16,8 @@ public class Test3 {
         String dogName = "Зубастик";
         String catName = "Чухопуз";
 
-        kennel.addAnimal(new Dog(10, dogName));
-        kennel.addAnimal(new Cat(10, catName));
+        kennel.addAnimal(new Dog(dogName));
+        kennel.addAnimal(new Cat(catName));
 
         Assert.assertEquals(dogName, kennel.getAnimalByName(dogName).getName());
         Assert.assertEquals(catName, kennel.getAnimalByName(catName).getName());
