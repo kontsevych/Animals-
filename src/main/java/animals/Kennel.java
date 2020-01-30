@@ -87,7 +87,7 @@ public class Kennel extends Animal {
             }
         }
         if (returnList.size() == 0) {
-            throw new IllegalArgumentException("Can't find animal with such name");
+            throw new IllegalArgumentException("Can't find animals with such name");
         }
         return returnList;
     }
