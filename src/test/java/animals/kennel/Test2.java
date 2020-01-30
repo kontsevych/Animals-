@@ -1,5 +1,6 @@
 package animals.kennel;
 
+import animals.Animal;
 import animals.Cat;
 import animals.Dog;
 import animals.Kennel;
@@ -15,10 +16,10 @@ public class Test2 {
 
         Kennel kennel = new Kennel();
 
-        kennel.addAnimal(new Dog(10, "Doom"));
+        kennel.addAnimal(new Dog());
 
-        for (Object container : kennel.getDogs()) {
-            Assert.assertEquals(container.getClass(), Dog.class);
+        for (Animal animal : kennel.getDogs()) {
+            Assert.assertEquals(Dog.class, animal.getClass());
         }
 
     }
@@ -27,12 +28,11 @@ public class Test2 {
     public void testAddCat() throws NullPointerException {
 
         Kennel kennel = new Kennel();
-        Cat cat = new Cat(10, "Doom");
 
-        kennel.addAnimal(cat);
+        kennel.addAnimal(new Cat());
 
-        for (Object container : kennel.getCats()) {
-            Assert.assertEquals(container.getClass(), Cat.class);
+        for (Animal animal : kennel.getCats()) {
+            Assert.assertEquals(Cat.class, animal.getClass());
         }
     }
 

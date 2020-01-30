@@ -13,14 +13,14 @@ public class Test3 {
 
         Kennel kennel = new Kennel();
 
-        String dogName = "Dog";
-        String catName = "Cat";
+        String dogName = "Зубастик";
+        String catName = "Чухопуз";
 
         kennel.addAnimal(new Dog(10, dogName));
         kennel.addAnimal(new Cat(10, catName));
 
-        Assert.assertEquals(dogName, kennel.getAnimalByName(dogName).getAnimalName());
-        Assert.assertEquals(catName, kennel.getAnimalByName(catName).getAnimalName());
+        Assert.assertEquals(dogName, kennel.getAnimalByName(dogName).getName());
+        Assert.assertEquals(catName, kennel.getAnimalByName(catName).getName());
 
     }
 
@@ -30,17 +30,17 @@ public class Test3 {
         Kennel kennel = new Kennel();
         //Відокремлюю імета які часто використовую
 
-        String dogName = "Dog";
-        String catName = "Cat";
+        String dogName = "Гавчик";
+        String catName = "Кусослав";
         String stupidName = "justin";
         int animalQuantity = 10;
 
         // Заповняю будку тваринами
         for (int counter = 0; counter < animalQuantity; counter++) {
-            kennel.addAnimal(new Dog(10, dogName));
-            kennel.addAnimal(new Dog(10, stupidName));
-            kennel.addAnimal(new Cat(10, catName));
-            kennel.addAnimal(new Cat(10, stupidName));
+            kennel.addAnimal(new Dog(dogName));
+            kennel.addAnimal(new Dog(stupidName));
+            kennel.addAnimal(new Cat(catName));
+            kennel.addAnimal(new Cat(stupidName));
         }
 
         // Перевірити чи кількість стварин з одним іменем вірна
@@ -51,13 +51,13 @@ public class Test3 {
 
         //Перевірити чи правильні імена у тварин
         for (Animal animal : kennel.getAnimalsByName(dogName)) {
-            Assert.assertEquals(dogName, animal.getAnimalName());
+            Assert.assertEquals(dogName, animal.getName());
         }
         for (Animal animal : kennel.getAnimalsByName(catName)) {
-            Assert.assertEquals(catName, animal.getAnimalName());
+            Assert.assertEquals(catName, animal.getName());
         }
         for (Animal animal : kennel.getAnimalsByName(stupidName)) {
-            Assert.assertEquals(stupidName, animal.getAnimalName());
+            Assert.assertEquals(stupidName, animal.getName());
         }
 
     }

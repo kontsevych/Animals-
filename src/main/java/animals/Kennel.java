@@ -67,7 +67,7 @@ public class Kennel extends Animal {
         Animal animal = null;
 
         for (Animal container : getAllPets()) {
-            if (container.getAnimalName() == name) {
+            if (container.getName().equals(name)) {
                 animal = container;
             }
         }
@@ -82,7 +82,7 @@ public class Kennel extends Animal {
         ArrayList<Animal> returnList = new ArrayList<Animal>();
 
         for (Animal container : getAllPets()) {
-            if (container.getAnimalName() == name) {
+            if (container.getName().equals(name)) {
                 returnList.add(container);
             }
         }

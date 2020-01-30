@@ -9,4 +9,16 @@ public class Cat extends Animal {
         setName(name);
     }
 
+    public Cat() {
+        setWeight(10);
+        setVoice(MEOW);
+        setName("Мурчик");
+    }
+
+    public Cat(String name) {
+        setWeight(10);
+        setVoice(MEOW);
+        setName(name);
+    }
+
 }
