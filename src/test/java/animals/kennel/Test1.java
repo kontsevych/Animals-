@@ -28,11 +28,8 @@ public class Test1 extends Animal {
     public void testGetCat() throws java.lang.NullPointerException {
         Kennel kennel = new Kennel();
 
-        for (int counter = 0; counter < 10; counter++) {
-
-            kennel.addAnimal(new Dog(10, "Dog"));
-            kennel.addAnimal(new Cat(10, "Cat"));
-        }
+        kennel.addAnimal(new Dog(10, "Dog"));
+        kennel.addAnimal(new Cat(10, "Cat"));
 
         for (Object container : kennel.getCats()) {
             Assert.assertEquals(container.getClass(), Cat.class);
@@ -41,7 +38,6 @@ public class Test1 extends Animal {
 
     @Test
     public void testExceptionGetDog() throws java.lang.NullPointerException {
-        boolean result = false;
 
         Kennel kennel = new Kennel();
 
@@ -51,14 +47,14 @@ public class Test1 extends Animal {
         try {
             kennel.getDogs();
         } catch (NullPointerException e) {
-            result = true;
+            assert true;
         }
-        Assert.assertTrue(result);
+
     }
 
     @Test
     public void testExceptionGetCat() throws java.lang.NullPointerException {
-        boolean result = false;
+
 
         Kennel kennel = new Kennel();
 
@@ -70,9 +66,8 @@ public class Test1 extends Animal {
         try {
             kennel.getCats();
         } catch (NullPointerException e) {
-            result = true;
+            assert true;
         }
-        Assert.assertTrue(result);
     }
 
     @Test
