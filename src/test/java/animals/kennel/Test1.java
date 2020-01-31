@@ -5,6 +5,7 @@ import animals.Cat;
 import animals.Dog;
 import animals.Kennel;
 import exception.KennelExceptions;
+import names.Names;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -14,36 +15,44 @@ public class Test1 extends Animal {
     @Test
     public void testGetDogs() throws KennelExceptions {
         Kennel kennel = new Kennel();
-        int animalsQuantity = 10;
+        Names[] names = Names.values();
+        int animalsQuantity = Names.values().length;
+        // Я створив енам клас з іменами собак
+        // Зробив масив якому передав список енам
 
         for (int counter = 0; counter < animalsQuantity; counter++) {
-            kennel.addAnimal(new Dog());
+            kennel.addAnimal(new Dog(names[counter].toString()));
             kennel.addAnimal(new Cat());
         }
 
         Assert.assertEquals(animalsQuantity, kennel.getDogs().size());
 
-        for (Animal animal : kennel.getDogs()) {
-            Assert.assertEquals(Dog.class, animal.getClass());
+        for (int counter = 0; counter < kennel.getDogs().size(); counter++) {
+            Assert.assertEquals(Dog.class, kennel.getDogs().get(counter).getClass());
+            Assert.assertEquals(names[counter].toString(), kennel.getDogs().get(counter).getName());
         }
     }
+
 
     @Test
     public void testGetCats() throws KennelExceptions {
         Kennel kennel = new Kennel();
+        Names names[] = Names.values();
 
-        int animalsQuantity = 10;
+        int animalsQuantity = names.length;
 
         for (int counter = 0; animalsQuantity > counter; counter++) {
-            kennel.addAnimal(new Dog());
-            kennel.addAnimal(new Cat());
+            kennel.addAnimal(new Dog(names[counter].toString()));
+            kennel.addAnimal(new Cat(names[counter].toString()));
         }
 
         Assert.assertEquals(animalsQuantity, kennel.getCats().size());
 
-        for (Animal animal : kennel.getCats()) {
-            Assert.assertEquals(Cat.class, animal.getClass());
+        for (int counter = 0; counter < kennel.getCats().size(); counter++) {
+            Assert.assertEquals(Cat.class, kennel.getCats().get(counter).getClass());
+            Assert.assertEquals(names[counter].toString(), kennel.getCats().get(counter).getName());
         }
+
     }
 
     @Test

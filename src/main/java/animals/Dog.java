@@ -3,12 +3,6 @@ package animals;
 public class Dog extends Animal {
     public final static String BARK = "ГАВ!";
 
-    public Dog(double weight, String name) {
-        setWeight(weight);
-        setVoice(BARK);
-        setName(name);
-    }
-
     public Dog() {
         setWeight(10);
         setVoice(BARK);
@@ -16,8 +10,13 @@ public class Dog extends Animal {
     }
 
     public Dog(String name) {
-        setWeight(10);
-        setVoice(BARK);
+        this();
+        setName(name);
+    }
+
+    public Dog(double weight, String name) {
+        this();
+        setWeight(weight);
         setName(name);
     }
 
