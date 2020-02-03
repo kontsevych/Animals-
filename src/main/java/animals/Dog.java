@@ -15,9 +15,8 @@ public class Dog extends Animal {
     }
 
     public Dog(double weight, String name) {
-        this();
+        this(name);
         setWeight(weight);
-        setName(name);
     }
 
 }
