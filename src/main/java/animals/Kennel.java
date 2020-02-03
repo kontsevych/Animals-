@@ -8,6 +8,8 @@ public class Kennel extends Animal {
     public final static String GET_DOGS_EXCEPTION = "There is not dogs in the kennel. \nTry to add dogs and than use this method.";
     public final static String GET_CATS_EXCEPTION = "There is not cats in the kennel. \nTry to add dogs and than use this method.";
     public final static String GET_ANIMAL_BY_NAME = "Can't find animal with such name: ";
+    public final static String GET_ANIMAL_BY_NAME_FEW_ANSWERS_RESPOND = "There is more than one animal with such name. \nPlease use another method ";
+    public final static String ADD_ANIMAL = "Can't find the animal: ";
 
     private ArrayList<Animal> animals = new ArrayList<Animal>();
 
@@ -24,7 +26,7 @@ public class Kennel extends Animal {
             } else if (animalContainer.getClass() == Cat.class) {
                 animals.add((Cat) animalContainer);
             }
-            throw new KennelExceptions("Can't find the animal: " + animal);
+            throw new KennelExceptions(ADD_ANIMAL + animal);
         }
         return animals;
     }
@@ -77,7 +79,7 @@ public class Kennel extends Animal {
             throw new KennelExceptions(GET_ANIMAL_BY_NAME + name);
         }
         if (animals.size() > 1) {
-            throw new KennelExceptions("There is more than one animal with such name. Please use another method");
+            throw new KennelExceptions(GET_ANIMAL_BY_NAME_FEW_ANSWERS_RESPOND);
         }
         return animal;
     }
