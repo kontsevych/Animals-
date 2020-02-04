@@ -17,20 +17,21 @@ public class Kennel extends Animal {
         animals.add(animal);
     }
 
-    public ArrayList<Animal> getAnimals(Class animalClass) throws KennelExceptions {
-        ArrayList<Animal> animalsContainer = new ArrayList<Animal>();
+    /*
+        public ArrayList<Animal> getAnimals(Class animalClass) throws KennelExceptions {
+            ArrayList<Animal> animalsContainer = new ArrayList<Animal>();
 
-        for (Animal animalContainer : this.animals) {
-            if (animalContainer.getClass() == Dog.class) {
-                animalsContainer.add((Dog) animalContainer);
-            } else if (animalContainer.getClass() == Cat.class) {
-                animalsContainer.add((Cat) animalContainer);
+            for (Animal animalContainer : this.animals) {
+                if (animalContainer.getClass() == Dog.class) {
+                    animalsContainer.add((Dog) animalContainer);
+                } else if (animalContainer.getClass() == Cat.class) {
+                    animalsContainer.add((Cat) animalContainer);
+                }
+                throw new KennelExceptions(ADD_ANIMAL + animalClass);
             }
-            throw new KennelExceptions(ADD_ANIMAL + animalClass);
+            return animalsContainer;
         }
-        return animalsContainer;
-    }
-
+    */
     public ArrayList<Animal> getAnimalsByClass(Class animalClass) throws KennelExceptions {
         ArrayList<Animal> animals = new ArrayList<Animal>();
 
@@ -58,7 +59,7 @@ public class Kennel extends Animal {
             dogs.add((Dog) dog);
         }
 
-        if (dogs.size() == 0){
+        if (dogs.size() == 0) {
             throw new KennelExceptions(GET_DOGS_EXCEPTION);
         }
         return dogs;
@@ -70,7 +71,7 @@ public class Kennel extends Animal {
         for (Animal cat : getAnimalsByClass(Cat.class)) {
             cats.add((Cat) cat);
         }
-        if(cats.size() == 0){
+        if (cats.size() == 0) {
             throw new KennelExceptions(GET_CATS_EXCEPTION);
         }
         return cats;

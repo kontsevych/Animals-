@@ -52,6 +52,7 @@
                     <include name="testGetAnimalsByName"/>
                 </methods>
             </class>
+
         </classes>
     </test>
 </suite>
