@@ -10,6 +10,7 @@ public class Kennel extends Animal {
     public final static String GET_ANIMAL_BY_NAME = "Can't find animal with such name: ";
     public final static String GET_ANIMAL_BY_NAME_FEW_ANSWERS_RESPOND = "There is more than one animal with such name. \nPlease use another method ";
     public final static String ADD_ANIMAL = "Can't find the animal: ";
+    public final static String GET_ANIMAL_BY_CLASS_EXCEPTION = "Can't find this class: ";
 
     private ArrayList<Animal> animals = new ArrayList<Animal>();
 
@@ -35,6 +36,10 @@ public class Kennel extends Animal {
     public ArrayList<Animal> getAnimalsByClass(Class animalClass) throws KennelExceptions {
         ArrayList<Animal> animals = new ArrayList<Animal>();
 
+        if(animalClass != Dog.class & animalClass != Cat.class){
+            throw new KennelExceptions(GET_ANIMAL_BY_CLASS_EXCEPTION);
+        }
+
         if (animalClass == Dog.class) {
             for (Animal animalContainer : this.animals) {
                 if (animalContainer.getClass() == Dog.class) {
@@ -49,6 +54,9 @@ public class Kennel extends Animal {
             }
         }
 
+        if (animals.size() == 0){
+            throw new KennelExceptions("Empty list");
+        }
 
         return animals;
     }
