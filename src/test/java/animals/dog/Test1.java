@@ -15,7 +15,7 @@ public class Test1 {
         Assert.assertEquals(result.length, Animal.DEFAULT_COUNT_VOICE);
 
         for (String i : result) {
-            Assert.assertEquals(i, Dog.BARK);
+            Assert.assertEquals(i, Dog.DEFAULT_BARK);
         }
     }
 
@@ -28,7 +28,7 @@ public class Test1 {
         Assert.assertEquals(result.length, count);
 
         for (String i : result) {
-            Assert.assertEquals(i, Dog.BARK);
+            Assert.assertEquals(i, Dog.DEFAULT_BARK);
         }
     }
 

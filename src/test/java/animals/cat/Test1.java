@@ -15,7 +15,7 @@ public class Test1 {
         Assert.assertEquals(result.length, Animal.DEFAULT_COUNT_VOICE);
 
         for (String i : result) {
-            Assert.assertEquals(i, Cat.MEOW);
+            Assert.assertEquals(i, Cat.DEFAULT_MEOW);
         }
     }
 
@@ -28,7 +28,7 @@ public class Test1 {
         Assert.assertEquals(result.length, count);
 
         for (String i : result) {
-            Assert.assertEquals(i, Cat.MEOW);
+            Assert.assertEquals(i, Cat.DEFAULT_MEOW);
         }
     }
 

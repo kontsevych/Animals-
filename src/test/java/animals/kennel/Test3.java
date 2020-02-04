@@ -112,8 +112,19 @@ public class Test3 {
 
         Assert.assertEquals(dogName, kennel.getAnimalByName(dogName).getName());
         Assert.assertEquals(catName, kennel.getAnimalByName(catName).getName());
-
     }
 
+    @Test
+    public void testGetAnimalsByClass() throws KennelExceptions {
+        Kennel kennel = new Kennel();
+
+        kennel.addAnimal(new Dog());
+        //kennel.addAnimal(new Cat());
+        //kennel.addAnimal(new Cat());
+
+        System.out.println(kennel.getDogs());
+        System.out.println(kennel.getCats());
+
+    }
 
 }
