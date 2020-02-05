@@ -1,2 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd"><suite name="All Test Suite"><test verbose="2" preserve-order="true" name="C:/Users/mkontsevych/Documents/GitHub/Animals-/src/test/java/animals"><classes><class name="animals.cat.Test1"><methods><include name="testCatVoice"/><include name="testCatVoiceRepeat"/></methods></class><class name="animals.cat.Test2"><methods><include name="testCatRunDefault"/><include name="testCatRunDistance"/><include name="testCatRunDistanceExceptionDistance"/><include name="testCatRunDistanceExceptionWeight"/></methods></class><class name="animals.dog.Test1"><methods><include name="testDogVoice"/><include name="testDogVoiceRepeat"/></methods></class><class name="animals.dog.Test2"><methods><include name="testDogRunDefault"/><include name="testDogRunDistance"/><include name="testDogRunDistanceExceptionDistance"/><include name="testDogRunDistanceExceptionWeight"/></methods></class><class name="animals.kennel.Test1"><methods><include name="testGetDogs"/><include name="testGetCats"/><include name="testExceptionGetDogs"/><include name="testExceptionGetCats"/><include name="testGetAllPets"/></methods></class><class name="animals.kennel.Test2"><methods><include name="testAddDog"/><include name="testAddCat"/></methods></class><class name="animals.kennel.Test3"><methods><include name="testGetAnimalByName"/><include name="testGetAnimalsByName"/><include name="testGetDogsByName"/><include name="testExceptionGetAnimalByName"/><include name="testGetAnimalsByClass"/></methods></class><class name="animals.kennel.Test4"><methods><include name="testGetAnimalsByClass"/></methods></class></classes></test></suite>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Test-class Suite" parallel="classes" thread-count="2">
+    <test verbose="2" preserve-order="true" name="C:/Users/mkontsevych/Documents/GitHub/Animals-/src/test/java/animals">
+        <classes>
+            <class name="animals.cat.Test1">
+                <methods>
+                    <include name="testCatVoice"/>
+                    <include name="testCatVoiceRepeat"/>
+                </methods>
+            </class>
+            <class name="animals.cat.Test2">
+                <methods>
+                    <include name="testCatRunDefault"/>
+                    <include name="testCatRunDistance"/>
+                    <include name="testCatRunDistanceExceptionDistance"/>
+                    <include name="testCatRunDistanceExceptionWeight"/>
+                </methods>
+            </class>
+            <class name="animals.dog.Test1">
+                <methods>
+                    <include name="testDogVoice"/>
+                    <include name="testDogVoiceRepeat"/>
+                </methods>
+            </class>
+            <class name="animals.dog.Test2">
+                <methods>
+                    <include name="testDogRunDefault"/>
+                    <include name="testDogRunDistance"/>
+                    <include name="testDogRunDistanceExceptionDistance"/>
+                    <include name="testDogRunDistanceExceptionWeight"/>
+                </methods>
+            </class>
+            <class name="animals.kennel.Test1">
+                <methods>
+                    <include name="testGetDogs"/>
+                    <include name="testGetCats"/>
+                    <include name="testExceptionGetDogs"/>
+                    <include name="testExceptionGetCats"/>
+                    <include name="testGetAllPets"/>
+                </methods>
+            </class>
+            <class name="animals.kennel.Test2">
+                <methods>
+                    <include name="testAddDog"/>
+                    <include name="testAddCat"/>
+                </methods>
+            </class>
+            <class name="animals.kennel.Test3">
+                <methods>
+                    <include name="testGetAnimalByName"/>
+                    <include name="testGetAnimalsByName"/>
+                    <include name="testGetDogsByName"/>
+                    <include name="testExceptionGetAnimalByName"/>
+                    <include name="testGetAnimalsByClass"/>
+                </methods>
+            </class>
+            <class name="animals.kennel.Test4">
+                <methods>
+                    <include name="testGetAnimalsByClass"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

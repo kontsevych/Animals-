@@ -18,6 +18,8 @@ public class Test3 {
         String catName = "Чухопуз";
 
         kennel.addAnimal(new Dog(dogName));
+        kennel.addAnimal(new Dog(dogName));
+        kennel.addAnimal(new Dog(dogName));
         kennel.addAnimal(new Cat(catName));
 
         Assert.assertEquals(dogName, kennel.getAnimalByName(dogName).getName());
@@ -107,11 +109,14 @@ public class Test3 {
         String catName = "Чухопуз";
 
         kennel.addAnimal(new Dog(dogName));
-        //kennel.addAnimal(new Dog(dogName));
         kennel.addAnimal(new Cat(catName));
 
-        Assert.assertEquals(dogName, kennel.getAnimalByName(dogName).getName());
-        Assert.assertEquals(catName, kennel.getAnimalByName(catName).getName());
+        try {
+            kennel.getAnimalByName(dogName);
+        } catch (KennelExceptions e) {
+            Assert.assertEquals(Kennel.GET_ANIMAL_BY_NAME + dogName, e.toString());
+            Assert.assertEquals(Kennel.GET_ANIMAL_BY_NAME + catName, e.toString());
+        }
     }
 
 }

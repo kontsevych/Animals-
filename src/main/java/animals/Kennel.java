@@ -36,7 +36,7 @@ public class Kennel extends Animal {
     public ArrayList<Animal> getAnimalsByClass(Class animalClass) throws KennelExceptions {
         ArrayList<Animal> animals = new ArrayList<Animal>();
 
-        if(animalClass != Dog.class & animalClass != Cat.class){
+        if (animalClass != Dog.class & animalClass != Cat.class) {
             throw new KennelExceptions(GET_ANIMAL_BY_CLASS_EXCEPTION);
         }
 
@@ -52,10 +52,6 @@ public class Kennel extends Animal {
                     animals.add((Cat) animalContainer);
                 }
             }
-        }
-
-        if (animals.size() == 0){
-            throw new KennelExceptions("Empty list");
         }
 
         return animals;
@@ -92,21 +88,19 @@ public class Kennel extends Animal {
     public Animal getAnimalByName(String name) throws KennelExceptions {
 
         Animal animal = null;
-        ArrayList<Animal> animals = new ArrayList<Animal>();
 
         for (Animal container : getAllAnimals()) {
             if (container.getName().equals(name)) {
                 animal = container;
                 animals.add(container);
+                break;
             }
         }
 
         if (animal == null) {
             throw new KennelExceptions(GET_ANIMAL_BY_NAME + name);
         }
-        if (animals.size() > 1) {
-            throw new KennelExceptions(GET_ANIMAL_BY_NAME_FEW_ANSWERS_RESPOND);
-        }
+
         return animal;
     }
 

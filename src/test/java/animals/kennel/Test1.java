@@ -83,8 +83,7 @@ public class Test1 extends Animal {
         try {
             kennel.getCats();
         } catch (KennelExceptions e) {
-            //Assert.assertEquals(Kennel.GET_CATS_EXCEPTION, e.toString());
-            System.out.println(e.getMessage());
+            Assert.assertEquals(Kennel.GET_CATS_EXCEPTION, e.toString());
             //Assert.assertEquals(Kennel.GET_CATS_EXCEPTION, e.getMessage());
         }
     }
