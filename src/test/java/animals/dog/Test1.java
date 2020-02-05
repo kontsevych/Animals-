@@ -9,13 +9,13 @@ public class Test1 {
 
     @Test
     public void testDogVoice() {
-        Dog dog = new Dog(10);
+        Dog dog = new Dog(10, "test");
 
         String[] result = dog.voice();
         Assert.assertEquals(result.length, Animal.DEFAULT_COUNT_VOICE);
 
         for (String i : result) {
-            Assert.assertEquals(i, Dog.BARK);
+            Assert.assertEquals(i, Dog.DEFAULT_BARK);
         }
     }
 
@@ -23,12 +23,12 @@ public class Test1 {
     public void testDogVoiceRepeat() {
         int count = 10;
 
-        Dog dog = new Dog(10);
+        Dog dog = new Dog(10, "test");
         String[] result = dog.voice(count);
         Assert.assertEquals(result.length, count);
 
         for (String i : result) {
-            Assert.assertEquals(i, Dog.BARK);
+            Assert.assertEquals(i, Dog.DEFAULT_BARK);
         }
     }
 

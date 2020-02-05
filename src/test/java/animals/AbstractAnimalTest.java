@@ -13,4 +13,5 @@ public abstract class AbstractAnimalTest {
             return distance / (weight / 2);
         }
     }
+
 }

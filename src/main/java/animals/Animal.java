@@ -5,11 +5,20 @@ public class Animal {
     public final static double DEFAULT_DISTANCE_RUN = 1;
     public final static String RUN = "Run";
 
+    private String name = null;
     private String voice = null;
     private double weight = 0;
 
     public double getWeight() {
         return weight;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getVoice() {
